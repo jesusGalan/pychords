@@ -437,7 +437,6 @@ def scale_to_json(scale_string):
     return json.dumps(result)
 
 
-
 if __name__ == '__main__':
 
     print '\n'

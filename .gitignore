@@ -3,3 +3,4 @@ venv/
 .flooignore
 *.pyc
 FLOOBITS_README.md
+static/less/

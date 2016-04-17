@@ -1,0 +1,114 @@
+/* Variables */
+/* also ajusts string spacing and dot-inlay */
+/* also adjusts dot inlay color */
+/* might not want transparency if not using with background image */
+/* mixin to place locations */
+/* Styles */
+body {
+  background: url('http://subtlepatterns.com/patterns/nasty_fabric.png') lightgray;
+  font-family: sans-serif;
+  text-align: center;
+}
+p {
+  max-width: 38em;
+  margin: auto;
+}
+.make-chord {
+  font-family: sans-serif;
+  position: relative;
+  border: 1px solid #222;
+  border-right: 1em solid #E3E0C3;
+  width: 28em;
+  margin: 1em auto;
+  overflow: hidden;
+  box-shadow: 0 0 1em 0 #000;
+  background: repeating-linear-gradient(to right, #000, #999 0.5em, rgba(92, 46, 0, 0.4) 0.5em, rgba(92, 46, 0, 0.4) 4em), url('http://subtlepatterns.com/patterns/dark_wood.png') brown;
+  /* image not necessary, but it's fun! */
+  /* strings */
+  /* fret dots */
+}
+.make-chord::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0.8125em;
+  left: 0;
+  background: repeating-linear-gradient(to top, #000, #BFA919 0.25em, transparent 0.25em, transparent 1.875em);
+}
+.make-chord::after {
+  content: "";
+  text-align: right;
+  height: 1.25em;
+  width: 1.25em;
+  margin-top: -0.625em;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  border-radius: 100em;
+  background-color: #E3E0C3;
+  box-shadow: -8em 0 0 0 #E3E0C3, -16em 0 0 0 #E3E0C3;
+  opacity: .25;
+  z-index: 0;
+  margin-right: 9.125em;
+}
+/* end make-chord */
+.fret {
+  color: #fff;
+  text-align: center;
+  text-transform: lowercase;
+  line-height: 1.25em;
+  display: block;
+  position: relative;
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: 0.3125em;
+  margin-bottom: 0.3125em;
+  border-radius: 100em;
+  background: rgba(86, 235, 49, 0.75);
+  float: right;
+  clear: right;
+  z-index: 1;
+}
+.fret-x {
+  background: rgba(255, 0, 0, 0.25);
+}
+.fret-0 {
+  visibility: hidden;
+}
+.fret-1 {
+  margin-right: 1.125em;
+}
+.fret-2 {
+  margin-right: 5.125em;
+}
+.fret-3 {
+  margin-right: 9.125em;
+}
+.fret-4 {
+  margin-right: 13.125em;
+}
+.fret-5 {
+  margin-right: 17.125em;
+}
+.fret-6 {
+  margin-right: 21.125em;
+}
+.fret-7 {
+  margin-right: 25.125em;
+}
+.fret-8 {
+  margin-right: 29.125em;
+}
+.fret-9 {
+  margin-right: 33.125em;
+}
+.fret-10 {
+  margin-right: 37.125em;
+}
+.fret-11 {
+  margin-right: 41.125em;
+}
+.fret-12 {
+  margin-right: 45.125em;
+}
