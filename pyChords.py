@@ -407,6 +407,7 @@ def standar_proccess(scale_list, tone, scale):
 def debug_scale(scale):
     notes = ['C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#', 'Ab', 'A', 'A#', 'Bb', 'B']
     result = {}
+
     for note in notes:
         result[scale + ' tone ' + note + ':'] = scales(scale, note)
 
@@ -424,6 +425,18 @@ def display_debug(result):
                 res = res + '  ' + value[x] + ' '
         res = res + '\n'
     return res
+
+
+def scale_to_json(scale_string):
+    notes = ['C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#', 'Ab', 'A', 'A#', 'Bb', 'B']
+    result = {}
+
+    for note in notes:
+        result[note] = scales(scale_string, note)
+
+    return json.dumps(result)
+
+
 
 if __name__ == '__main__':
 

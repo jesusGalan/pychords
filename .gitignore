@@ -1,0 +1,5 @@
+venv/
+.floo
+.flooignore
+*.pyc
+FLOOBITS_README.md

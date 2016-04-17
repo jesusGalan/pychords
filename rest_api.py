@@ -6,7 +6,7 @@ import tornado.web
 import tornado.httpserver
 import tornado.options
 
-from pyChords import debug_scale
+from pyChords import scale_to_json
 
 from tornado.options import define, options
 define('port', default=8000, help='Especifica el puerto', type=int)
@@ -15,7 +15,8 @@ define('port', default=8000, help='Especifica el puerto', type=int)
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         argument = self.get_argument('escala')
-        self.write(debug_scale(argument))
+
+        self.write(scale_to_json(argument))
 
 
 if __name__ == '__main__':
