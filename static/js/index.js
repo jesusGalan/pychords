@@ -1,29 +1,21 @@
-function makeChord(containerClass, fretClass){
-  if(!containerClass){containerClass = "make-chord"}
-  if(!fretClass){fretClass = "fret";}
-  var chord = document.getElementsByClassName(containerClass);
+var init = {};
 
-  for(var i = 0; i < chord.length; i++){
-    if(chord[i].children.length === 0){ //don't do if already done
-      var voice = chord[i].innerHTML,
-          voicing = voice.split(","),
-          html = "";
-
-        for(var x = 0; x < voicing.length; x++){
-          html += '<span class="' + fretClass + ' ' + fretClass + '-' + (voicing[x]) + '">' + voicing[x] + '</span>';
-        }
-
-        chord[i].innerHTML = html;
-    }// end if
+init.pintar = function (param){
+	for(var i = 0; i <  document.getElementsByClassName(param.getAttribute('value')).length; i++) {
+		document.getElementsByClassName(param.getAttribute('value'))[i].innerHTML = init.pintarNota(param);
   }
 }
 
-makeChord();
+init.pintarNota = function (param) {
+  var value = param.getAttribute('value');
+  var idNota = value + "-" + Math.random();
+  var idWord = value + "-" + Math.random();
+  var idPicker = value + "-" + Math.random();
+  var idWordPicker = value + "-" + Math.random();
 
-// just for demo-ing the change
-document.getElementById('change-chord').onclick = function(){
-  var newChord = this.getAttribute('data-chord');
-  document.getElementById('changes').innerHTML = newChord;
-  makeChord();
-  this.style.display = "none";
+return '<div onmouseover="init.pintarPicker(\'' + idPicker + '\', \'' +idWordPicker+'\')" onmouseout="init.quitarPicker(\'' + idPicker + '\', \'' +idWordPicker+'\')">' +
+	'<input id=\'' + idWordPicker+ '\' style="display: none" type="color" id="color" name="colorpicker" oninput="init.cambiarColorLetra(this, \'' + idNota + '\')">'  	+
+  '<input style="height:21px;" id="' + idNota  + '" type="button" class="boxed" onclick="init.despintar(this);" value="'+ value + '">' +
+       '<input id=\'' + idPicker+ '\' style="display: none" type="color" id="color" name="colorpicker" oninput="init.cambiarColor(this, \'' + idNota + '\')">' +
+       '</div>'
 }
