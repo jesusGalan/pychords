@@ -21,12 +21,12 @@ Copyright (C) 2016  jgalanc
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-    
+
 
 tested with expects and mamba:
 
 	- Expects: pip install expects
 
 	- Mamba: pip install mamba
-    
-               mamba specs.py!
+
+    >> mamba specs.py
