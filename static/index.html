@@ -2,22 +2,146 @@
 
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>pychords</title>
-  <link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
-  <h1>Scalable, Customizable Guitar Fretboard</h1>
-  <h2>G Major:</h2>
-  <div class="make-chord" id="changes">3,3,0,0,2,3</div>
+  <div class="container">
+  <table cellspacing="0" id="mastil">
+  	<tr>
 
-  <p><button id="change-chord" data-chord="5,x,5,5,0,0">Change above chord to Am7</button></p>
+      <td>0</td>
+   		<td></td>
+  		<td></td>
+   		<td>3</td>
+  		<td></td>
+   		<td>5</td>
+  		<td></td>
+   		<td>7</td>
+  		<td></td>
+   		<td>9</td>
+  		<td></td>
+   		<td></td>
+  		<td>12</td>
 
-  <p>You can adjust the numbers in the "make-chord" div to place the finger wherever (which makes it kind of accessible!). Then you can adjust much of the view of the fretboard in the .LESS variables.</p>
 
-  <h2>F# Major 7th:</h2>
-  <div class="make-chord">x,x,x,x,x,x</div>
+  	</tr>
 
-  <script src="/static/js/index.js"></script>
+  <tr class="prima">
+  		<td class="aire  E t0" value="E" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  F t1" value="F" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  F# t2" value="F#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  G t3" value="G" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  G# t4" value="G#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  A t5" value="A" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  A# t6" value="A#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  B t7" value="B" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  C t8" value="C" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  C# t9" value="C#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  D t10" value="D" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  D# t11" value="D#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  E t12" value="E" ondblclick="init.pintar(this)"></td>
+
+  	</tr>
+
+
+
+  	<tr class="segunda">
+  		<td class="aire  B t0" value="B" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  C t1" value="C" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  C# t2" value="C#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  D t3" value="D" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  D# t4" value="D#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  E t5" value="E" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  F t6" value="F" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  F# t7" value="F#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  G t8" value="G" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  G# t9" value="G#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  A t10" value="A" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  A# t11" value="A#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  B t12" value="B" ondblclick="init.pintar(this)"></td>
+
+
+  	</tr>
+
+
+  	<tr class="tercera">
+  		<td class="aire  G t0" value="G" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  G# t1" value="G#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  A t2" value="A" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  A# t3" value="A#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  B t4" value="B" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  C t5" value="C" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  C# t6" value="C#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  D t7" value="D" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  D# t8" value="D#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  E t9" value="E" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  F t10" value="F" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  F# t11" value="F#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  G t12" value="G" ondblclick="init.pintar(this)"></td>
+
+
+  	</tr>
+
+
+  	<tr class="cuarta">
+  		<td class="aire  D t0" value="D" ondblclick="init.pintar(this)"></td>
+    		<td class="cuerdas  D# t1" value="D#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  E t2" value="E" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  F t3" value="F" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  F# t4" value="F#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  G t5" value="G" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  G# t6" value="G#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  A t7" value="A" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  A# t8" value="A#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  B t9" value="B" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  C t10" value="C" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  C# t11" value="C#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  D t12" value="D" ondblclick="init.pintar(this)"></td>
+
+  	</tr>
+
+
+
+  	<tr class="quinta">
+  		<td class="aire  A t0" value="A" ondblclick="init.pintar(this)"></td>
+    		<td class="cuerdas  A# t1" value="A#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  B t2"  value="B" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  C t3"  value="C" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  C# t4" value="C#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  D t5"  value="D" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  D# t6" value="D#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  E t7"  value="E" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  F t8" value="F" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  F# t9"  value="F#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  G t10" value="G" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  G# t11" value="G#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  A t12" value="A" ondblclick="init.pintar(this)"></td>
+
+  	</tr>
+
+
+
+  	<tr class="sexta">
+    		<td class="aire  E t0" value="E" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  F t1" value="F" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  F# t2" value="F#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  G t3" value="G" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  G# t4" value="G#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  A t5" value="A" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  A# t6" value="A#" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  B t7" value="B" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  C t8" value="C" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  C# t9" value="C#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  D t10" value="D" ondblclick="init.pintar(this)"></td>
+   		<td class="cuerdas  D# t11" value="D#" ondblclick="init.pintar(this)"></td>
+  		<td class="cuerdas  E t12" value="E" ondblclick="init.pintar(this)"></td>
+
+
+
+  	</table>
+    </div>
+    <script src="/static/js/index.js"></script>
+    <script src"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>
