@@ -2,6 +2,10 @@
 
 import json
 import sys
+import os
+
+
+SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales.json')
 
 
 def scales(scale_name, tone):
@@ -369,7 +373,7 @@ def listRightIndex(alist, value):
 
 
 def read_scales_from_json():
-    with open('scales.json', 'rb') as f:
+    with open(SCALES_JSON_PATH, 'rb') as f:
         content = f.read()
 
     return content
@@ -420,8 +424,7 @@ def display_debug(result):
     for key, value in result.items():
         res = res + key
         for x in range(len(value)):
-            if 'b' in value[x] or '
-#' in value[x]:
+            if 'b' in value[x] or '' in value[x]:
                 res = res + ' ' + value[x] + ' '
             else:
                 res = res + '  ' + value[x] + ' '
@@ -429,14 +432,35 @@ def display_debug(result):
     return res
 
 
-def scale_to_json(scale_string):
-    notes = ['C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#', 'Ab', 'A', 'A#', 'Bb', 'B']
-    result = {}
+def get_scale_name_list():
+    json_content = parse_scales_json_to_python()
 
-    for note in notes:
-        result[note] = scales(scale_string, note)
+    scale_name_list = []
+    for key in json_content:
+        scale_name_list.append(key.replace('_', ' '))
 
-    return json.dumps(result)
+    return scale_name_list
+
+
+def get_grade_name_list_of_scale(scale):
+    json_content = parse_scales_json_to_python()
+
+    grade_name_list = []
+    for k in json_content.get(scale):
+        grade_name_list.append(k.replace('_', ' '))
+
+    return grade_name_list
+
+
+def parse_scales_json_to_python():
+    with open(SCALES_JSON_PATH, 'rb') as _file:
+        json_content = json.loads(_file.read())
+
+        # sanitize check
+        _file.close()
+
+    return json_content
+
 
 
 if __name__ == '__main__':

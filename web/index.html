@@ -5,12 +5,144 @@
     <!-- CSS DEPENDENCIES -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
-<body ng-app="webpychords">
+<body ng-app="app">
+
+    <div class="container" ng-controller="fretBoardController">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <th>FRET_0</th>
+                            <th>FRET_1</th>
+                            <th>FRET_2</th>
+                            <th>FRET_3</th>
+                            <th>FRET_4</th>
+                            <th>FRET_5</th>
+                            <th>FRET_6</th>
+                            <th>FRET_7</th>
+                            <th>FRET_8</th>
+                            <th>FRET_9</th>
+                            <th>FRET_10</th>
+                            <th>FRET_11</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <select class="form-control" data-ng-options="scale as scale | uppercase for scale in scales" ng-change="getScaleGrades(selectedScale)" ng-model="selectedScale.name">
+                    <option value="">Seleccione Escala</option>
+                </select>
+            </div>
+
+            <div class="col-xs-6">
+                <select ng-show="selectedScale.name" class="form-control" data-ng-options="grade as grade | uppercase for grade in grades" ng-model="selectedScale.selectedGrade">
+                    <option value="">Seleccione Grado</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
     <!-- JS DEPENDENCIES -->
     <script src"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.4/angular.min.js"></script>
 
     <!-- APP -->
     <script src="/static/js/app.js" charset="UTF-8"></script>
+
+    <!-- APP.Controllers -->
+    <script src="/static/js/controllers/fretBoardController.js" charset="UTF-8"></script>
+
+    <!-- APP.Factories -->
+    <script src="/static/js/factories/scalesFactory.js" charset="UTF-8"></script>
 </body>
 </html>
