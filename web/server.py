@@ -23,7 +23,6 @@ class IndexHandler(tornado.web.RequestHandler):
 
 class AllScalesApiHandler(tornado.web.RequestHandler):
     def get(self):
-
         scale_list = json.dumps(get_scale_name_list())
 
         self.set_header('Content-Type', 'application/json')

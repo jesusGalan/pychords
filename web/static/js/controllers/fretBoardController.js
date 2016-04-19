@@ -34,7 +34,6 @@
 
             scalesFactory.getGrades(reformatedScale).then(
                 function(data) {
-                    console.log(data);
                     $scope.grades = data;
                 }
             );
