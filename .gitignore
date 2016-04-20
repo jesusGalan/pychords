@@ -5,3 +5,4 @@ venv/
 *.pyc
 FLOOBITS_README.md
 static/less/
+*.json~
