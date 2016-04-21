@@ -137,13 +137,13 @@
 
         <div class="row">
             <div class="col-xs-6">
-                <select class="form-control" ng-show="selectedScale.selectedGrade" data-ng-options="tone as tone for tone in tones" ng-model="selectedScale.selectedTone" ng-change="setNotes(selectedScale.selectedTone)">
+                <select class="form-control" ng-show="selectedScale.selectedGrade && selectedScale.name" data-ng-options="tone as tone for tone in tones" ng-model="selectedScale.selectedTone" ng-change="setNotes(selectedScale.selectedTone)">
                     <option value="">Seleccione Tono</option>
                 </select>
             </div>
 
             <div class="col-xs-6">
-                <select class="form-control" ng-show="selectedScale.selectedTone" data-ng-options="note as note for note in notes" ng-model="selectedScale.selectedNote">
+                <select class="form-control" ng-change="getNotePositions(selectedScale.selectedNote)" ng-show="selectedScale.selectedTone && selectedScale.selectedGrade && selectedScale.name" data-ng-options="note as note for note in notes" ng-model="selectedScale.selectedNote">
                     <option value="">Seleccione Nota</option>
                 </select>
             </div>

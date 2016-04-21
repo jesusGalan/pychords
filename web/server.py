@@ -12,6 +12,7 @@ import tornado.httpserver
 from pychords.functions import get_scale_name_list
 from pychords.functions import get_grade_name_list_of_scale
 from pychords.functions import get_tone_name_list_of_grade
+from pychords.functions import get_fretboard_note_positions
 
 from tornado.options import define, options
 define('port', default=8000, help='Especifica el puerto', type=int)
@@ -47,6 +48,14 @@ class TonesApiHandler(tornado.web.RequestHandler):
         self.set_header('Content-Type', 'application/json')
         self.write(json.dumps(tone_list))
 
+class NotePositionsHandler(tornado.web.RequestHandler):
+    def get(self):
+        note = self.get_argument('note')
+        positions = get_fretboard_note_positions(note)
+
+        self.set_header('Content-Type', 'application/json')
+        self.write(json.dumps(positions))
+
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()
@@ -55,6 +64,7 @@ if __name__ == '__main__':
         (r'/api/scale/', AllScalesApiHandler),
         (r'/api/grades/', ScaleGradesApiHandler),
         (r'/api/tones/', TonesApiHandler),
+        (r'/api/note_positions/', NotePositionsHandler),
     ]
     static_path = os.path.join(os.path.dirname(__file__), 'static')
     app = tornado.web.Application(handlers=handlers, static_path=static_path,

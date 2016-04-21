@@ -17,8 +17,7 @@
             $scope.getScaleGrades = getScaleGrades;
             $scope.getTones = getTones;
             $scope.setNotes = setNotes;
-            $scope.scales = [];
-            $scope.grades = [];
+            $scope.getNotePositions = getNotePositions;
 
             scalesFactory.getAll().then(
                 function(data) {
@@ -28,6 +27,8 @@
         }
 
         function getScaleGrades(scale) {
+            $scope.grades = [];
+
             if (scale.name == null) {
                 return;
             }
@@ -42,6 +43,9 @@
         }
 
         function getTones(grade) {
+            $scope.tones = [];
+            $scope.tonesNotesCorrespondency = [];
+
             if (grade == null) {
                 return;
             }
@@ -50,9 +54,6 @@
 
             scalesFactory.getTones(reformatedGrade).then(
                 function(data) {
-                    $scope.tones = [];
-                    $scope.tonesNotesCorrespondency = [];
-
                     angular.forEach(data, function (value, key) {
                         $scope.tones.push(Object.keys(value)[0]);
                         $scope.tonesNotesCorrespondency.push(value);
@@ -62,11 +63,25 @@
         }
 
         function setNotes(tone) {
+            $scope.notes = [];
+
             angular.forEach($scope.tonesNotesCorrespondency, function (value, key) {
                 if (tone == Object.keys(value)[0]) {
                     $scope.notes = value[tone];
                 }
             });
+        }
+
+        function getNotePositions(note) {
+            if (note == null) {
+                return;
+            }
+
+            scalesFactory.getNotePositions(note).then(
+                function(data) {
+                    console.log(data);
+                }
+            );
         }
     }
 })();
