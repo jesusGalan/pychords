@@ -12,6 +12,7 @@
         var service = {
             getAll: getAll,
             getGrades: getGrades,
+            getTones: getTones
         };
 
         return service;
@@ -45,6 +46,24 @@
 
             function getGradesFail(error) {
                 console.error('XHR Failed for scalesFactory.getGrades.', error.data);
+            }
+        }
+
+        function getTones(grade) {
+            return $http({
+                url: '/api/tones/',
+                method: 'GET',
+                params: {grade: grade}
+            })
+                .then(getTonesComplete)
+                .catch(getTonesFail);
+
+            function getTonesComplete(response) {
+                return response.data;
+            }
+
+            function getTonesFail(error) {
+                console.error('XHR Failed for scalesFactory.getTones', error.data);
             }
         }
     }

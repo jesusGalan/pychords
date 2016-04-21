@@ -13,7 +13,7 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
-                            <th>FRET_0</th>
+                            <th>Air</th>
                             <th>FRET_1</th>
                             <th>FRET_2</th>
                             <th>FRET_3</th>
@@ -117,6 +117,8 @@
             </div>
         </div>
 
+        <br>
+
         <div class="row">
             <div class="col-xs-6">
                 <select class="form-control" data-ng-options="scale as scale | uppercase for scale in scales" ng-change="getScaleGrades(selectedScale)" ng-model="selectedScale.name">
@@ -125,11 +127,29 @@
             </div>
 
             <div class="col-xs-6">
-                <select ng-show="selectedScale.name" class="form-control" data-ng-options="grade as grade | uppercase for grade in grades" ng-model="selectedScale.selectedGrade">
+                <select ng-change="getTones(selectedScale.selectedGrade)" ng-show="selectedScale.name" class="form-control" data-ng-options="grade as grade | uppercase for grade in grades" ng-model="selectedScale.selectedGrade">
                     <option value="">Seleccione Grado</option>
                 </select>
             </div>
         </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <select class="form-control" ng-show="selectedScale.selectedGrade" data-ng-options="tone as tone for tone in tones" ng-model="selectedScale.selectedTone" ng-change="setNotes(selectedScale.selectedTone)">
+                    <option value="">Seleccione Tono</option>
+                </select>
+            </div>
+
+            <div class="col-xs-6">
+                <select class="form-control" ng-show="selectedScale.selectedTone" data-ng-options="note as note for note in notes" ng-model="selectedScale.selectedNote">
+                    <option value="">Seleccione Nota</option>
+                </select>
+            </div>
+        </div>
+
+
     </div>
 
     <!-- JS DEPENDENCIES -->

@@ -462,8 +462,17 @@ def parse_scales_json_to_python():
     return json_content
 
 
+def get_tone_name_list_of_grade(grade):
+    notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+    result = []
+
+    for note in notes:
+        result.append({note : scales(grade, note)})
+
+    return result
+
 
 if __name__ == '__main__':
 
     print '\n'
-    print debug_scale(str(sys.argv[1]))
+    print get_tone_name_list_of_grade(str(sys.argv[1]))

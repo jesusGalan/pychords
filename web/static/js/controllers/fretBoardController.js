@@ -15,6 +15,8 @@
             console.log('Activate fretBoardController view');
 
             $scope.getScaleGrades = getScaleGrades;
+            $scope.getTones = getTones;
+            $scope.setNotes = setNotes;
             $scope.scales = [];
             $scope.grades = [];
 
@@ -37,6 +39,34 @@
                     $scope.grades = data;
                 }
             );
+        }
+
+        function getTones(grade) {
+            if (grade == null) {
+                return;
+            }
+
+            var reformatedGrade = grade.split(' ').join('_');
+
+            scalesFactory.getTones(reformatedGrade).then(
+                function(data) {
+                    $scope.tones = [];
+                    $scope.tonesNotesCorrespondency = [];
+
+                    angular.forEach(data, function (value, key) {
+                        $scope.tones.push(Object.keys(value)[0]);
+                        $scope.tonesNotesCorrespondency.push(value);
+                    });
+                }
+            );
+        }
+
+        function setNotes(tone) {
+            angular.forEach($scope.tonesNotesCorrespondency, function (value, key) {
+                if (tone == Object.keys(value)[0]) {
+                    $scope.notes = value[tone];
+                }
+            });
         }
     }
 })();
