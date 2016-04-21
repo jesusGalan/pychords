@@ -420,12 +420,23 @@ with description("App pyChords"):
 
             expect(scales(scale, note)).to(equal(['B', 'C#', 'D#', 'E', 'F#', 'G', 'A#']))
 
+        with it('must return escala tono a tono'):
+            note = "B"
+            scale = "escala_tono_a_tono"
 
+            expect(scales(scale, note)).to(equal(['B', 'C#', 'D#', 'F', 'G', 'A']))
 
+        with it('must return escala de blues'):
+            note = "B"
+            scale = "escala_de_blues"
 
+            expect(scales(scale, note)).to(equal(['B', 'D', 'E', 'F', 'Gb', 'A']))
 
+        with it('must return escala de blues'):
+            note = "C"
+            scale = "escala_de_blues"
 
-
+            expect(scales(scale, note)).to(equal(['C', 'D#', 'F', 'F#', 'G', 'A#']))
 
         with it("must return C cromatic scale"):
             note = "C"

@@ -119,22 +119,26 @@ def setup_scale(scale, tone):
 def substract_scale(scale, name_of_scale):
     if name_of_scale in 'escala_cromatica':
         return [scale[0], scale[1], scale[2], scale[3], scale[4], scale[5], scale[6], scale[7], scale[8], scale[9], scale[10], scale[11]]
+    elif name_of_scale in 'escala_tono_a_tono' or name_of_scale in 'escala_de_blues':
+        return [scale[6], scale[7], scale[8], scale[9], scale[10], scale[11]]
     else:
         return [scale[7], scale[8], scale[9], scale[10], scale[11], scale[12], scale[6]]
 
 
-def substract_fixed_scale(scale):
-    return [scale[7], scale[8], scale[9], scale[3], scale[11], scale[12], scale[6]]
+def substract_fixed_scale(scale, scale_name):
+    if scale_name in 'escala_de_blues':
+        return [scale[6], scale[7], scale[8], scale[3], scale[10], scale[5]]
+    else:
+        return [scale[7], scale[8], scale[9], scale[3], scale[11], scale[12], scale[6]]
 
 
 def scan_duplicates_for_sost_scales(scale, scale_with_points):
     scale_relist = scale
     # Scan a duplicate in left note for first scale aproximation
-    for n in range(len(scale)):
-        if 13 > n > 0:
-            if '.' in scale_with_points[n]:
-                if scale_with_points[n][0:1] in scale[n - 1]:
-                    scale_relist[n] = scale_with_points[n].split('.')[1]
+    for n in range(len(scale) - 1):
+        if '.' in scale_with_points[n]:
+            if scale_with_points[n][0:1] in scale[n - 1]:
+                scale_relist[n] = scale_with_points[n].split('.')[1]
 
     return scale_relist
 
@@ -142,11 +146,10 @@ def scan_duplicates_for_sost_scales(scale, scale_with_points):
 def scan_duplicates_for_bemol_scales(scale, scale_with_points):
     scale_relist = scale
     # Scan a duplicate in left note for first aproximation
-    for n in range(len(scale)):
-        if 13 > n > 0:
-            if '.' in scale_with_points[n]:
-                if scale[n][0:1] in scale[n + 1] and scale_with_points[n][0:1] not in scale[n - 1]:
-                    scale_relist[n] = scale_with_points[n].split('.')[0]
+    for n in range(len(scale) - 1):
+        if '.' in scale_with_points[n]:
+            if scale[n][0:1] in scale[n + 1] and scale_with_points[n][0:1] not in scale[n - 1]:
+                scale_relist[n] = scale_with_points[n].split('.')[0]
 
     return scale_relist
 
@@ -155,13 +158,13 @@ def get_dup_persist(scale):
     scales = scale
     arg = False
     # Scales that going to repeat some note need to be invested under new behaviours
-    for n in range(len(scales)):
+    for n in range(len(scales) - 1):
         if 6 > n > 0:
             if scales[n][0:1] in scales[n - 1]:
                 arg = True
 
         else:
-            if scales[0][0:1] in scales[6][0:1]:
+            if scales[0][0:1] in scales[len(scales) - 1][0:1]:
                 arg = True
 
     return arg
@@ -187,7 +190,7 @@ def get_list_of_sures(swp):
     return result_list
 
 
-def get_some_notes_changed(scale, scale_with_points, tone):
+def get_some_notes_changed(scale, scale_with_points, tone, scale_name):
     scl = scale + scale
     notes = take_all_notes_from(tone)
     swp = scale_with_points + scale_with_points
@@ -213,7 +216,7 @@ def get_some_notes_changed(scale, scale_with_points, tone):
         if n > 0:
             list_of_required_notes.append(int(new_sure_list[n].split('-')[1]) - int(new_sure_list[n].split('-')[0]) - 1)
 
-    list_with_changes = get_changes(get_the_count_for_each_color(steps), list_of_required_notes, scale, scale_with_points, tone)
+    list_with_changes = get_changes(get_the_count_for_each_color(steps), list_of_required_notes, scale, scale_with_points, tone, scale_name)
 
     return list_with_changes
 
@@ -274,7 +277,7 @@ def get_short_list_of_notes(sure, next_sure, scale_with_points_double):
     return short_list
 
 
-def get_changes(color_of_not_sure_notes, req, scale, swp, tone):
+def get_changes(color_of_not_sure_notes, req, scale, swp, tone, scale_name):
     scales_wp = swp + swp
     scl = scale + scale
     sures = search_sure_notes(scales_wp)
@@ -296,7 +299,7 @@ def get_changes(color_of_not_sure_notes, req, scale, swp, tone):
                 for t in range(len(good_notes) - 1):
                     scl[scl.index(good_notes[0]) + t] = good_notes[t]
 
-            result = substract_fixed_scale(scl)
+            result = substract_fixed_scale(scl, scale_name)
     try:
         return result
     except UnboundLocalError:
@@ -402,7 +405,7 @@ def standar_proccess(scale_list, tone, scale):
     duplicate_persistance = get_dup_persist(out_scale)
 
     if duplicate_persistance is True and 'cromatic' not in scale:
-        out_scale_reconfigured = get_some_notes_changed(out_scale, substract_scale(scale_relisted, scale), tone)
+        out_scale_reconfigured = get_some_notes_changed(out_scale, substract_scale(scale_relisted, scale), tone, scale)
     else:
         out_scale_reconfigured = out_scale
 
@@ -467,7 +470,7 @@ def get_tone_name_list_of_grade(grade):
     result = []
 
     for note in notes:
-        result.append({note : scales(grade, note)})
+        result.append({note: scales(grade, note)})
 
     return result
 
