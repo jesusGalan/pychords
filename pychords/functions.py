@@ -120,7 +120,7 @@ def substract_scale(scale, name_of_scale):
     if name_of_scale in 'escala_cromatica':
         return [scale[0], scale[1], scale[2], scale[3], scale[4], scale[5], scale[6], scale[7], scale[8], scale[9], scale[10], scale[11]]
 
-    elif name_of_scale in 'escala_tono_a_tono' or 'escala_de_blues' in name_of_scale:
+    elif name_of_scale in 'escala_tono_a_tono' or 'escala_hexatonica_de_blues' in name_of_scale:
         return [scale[6], scale[7], scale[8], scale[9], scale[10], scale[11]]
 
     elif name_of_scale in 'escala_semitono_a_tono' or name_of_scale in 'escala_tono_a_semitono':
@@ -131,7 +131,7 @@ def substract_scale(scale, name_of_scale):
 
 
 def substract_fixed_scale(scale, scale_name):
-    if 'escala_de_blues' in scale_name:
+    if 'escala_hexatonica_de_blues' in scale_name:
         return [scale[6], scale[7], scale[8], scale[3], scale[10], scale[5]]
 
     else:
@@ -266,19 +266,34 @@ def get_required_notes(short_scale):
     return count
 
 
-def get_short_list_of_notes(sure, next_sure, scale_with_points_double):
-    short_list = []
-    result = scale_with_points_double.index(next_sure) - scale_with_points_double.index(sure)
-    if result < 0:
-        result = listRightIndex(scale_with_points_double, next_sure) - scale_with_points_double.index(sure)
+def get_short_list_of_notes_reverse(scale, sure, next_sure):
+    result = listRightIndex(scale, next_sure) - scale.index(sure)
+    short_list = get_short_list(result, scale, sure, next_sure)
+    return short_list
 
-        for x in range(result + 1):
-            short_list.append(scale_with_points_double[scale_with_points_double.index(sure) + x])
+
+def get_short_list(result, scale, sure, next_sure):
+    short_list = []
+    for x in range(result + 1):
+        short_list.append(scale[scale.index(sure) + x])
+
+    return short_list
+
+
+def get_short_list_procedure(result, scale, sure, next_sure):
+    if result < 0:
+        short_list = get_short_list_of_notes_reverse(scale, sure, next_sure)
 
     else:
         if result != 0:
-            for x in range(result + 1):
-                short_list.append(scale_with_points_double[scale_with_points_double.index(sure) + x])
+            short_list = get_short_list(result, scale, sure, next_sure)
+            return short_list
+
+    return short_list
+
+def get_short_list_of_notes(sure, next_sure, scale):
+    result = scale.index(next_sure) - scale.index(sure)
+    short_list = get_short_list_procedure(result, scale, sure, next_sure)
 
     return short_list
 

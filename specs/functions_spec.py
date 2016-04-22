@@ -426,15 +426,15 @@ with description("App pyChords"):
 
             expect(scales(scale, note)).to(equal(['B', 'C#', 'D#', 'F', 'G', 'A']))
 
-        with it('must return escala de blues'):
+        with it('must return escala hexatonica de blues'):
             note = "B"
-            scale = "escala_de_blues_primer_grado"
+            scale = "escala_hexatonica_de_blues_primer_grado"
 
             expect(scales(scale, note)).to(equal(['B', 'D', 'E', 'F', 'Gb', 'A']))
 
-        with it('must return escala de blues'):
+        with it('must return escala hexatonica de blues'):
             note = "C"
-            scale = "escala_de_blues_primer_grado"
+            scale = "escala_hexatonica_de_blues_primer_grado"
 
             expect(scales(scale, note)).to(equal(['C', 'D#', 'F', 'F#', 'G', 'A#']))
 
