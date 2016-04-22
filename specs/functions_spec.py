@@ -428,15 +428,29 @@ with description("App pyChords"):
 
         with it('must return escala de blues'):
             note = "B"
-            scale = "escala_de_blues"
+            scale = "escala_de_blues_primer_grado"
 
             expect(scales(scale, note)).to(equal(['B', 'D', 'E', 'F', 'Gb', 'A']))
 
         with it('must return escala de blues'):
             note = "C"
-            scale = "escala_de_blues"
+            scale = "escala_de_blues_primer_grado"
 
             expect(scales(scale, note)).to(equal(['C', 'D#', 'F', 'F#', 'G', 'A#']))
+
+        with it("must return E semitone a tone scale"):
+            note = "E"
+            scale = "escala_semitono_a_tono"
+
+            expect(scales(scale, note)).to(equal(
+                ['E', 'F', 'G', 'Ab', 'Bb', 'B', 'C#', 'D']))
+
+        with it("must return E semitone a tone scale"):
+            note = "E"
+            scale = "escala_semitono_a_tono"
+
+            expect(scales(scale, note)).to(equal(
+                ['E', 'F', 'G', 'Ab', 'Bb', 'B', 'C#', 'D']))
 
         with it("must return C cromatic scale"):
             note = "C"

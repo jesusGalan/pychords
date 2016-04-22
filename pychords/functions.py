@@ -119,15 +119,21 @@ def setup_scale(scale, tone):
 def substract_scale(scale, name_of_scale):
     if name_of_scale in 'escala_cromatica':
         return [scale[0], scale[1], scale[2], scale[3], scale[4], scale[5], scale[6], scale[7], scale[8], scale[9], scale[10], scale[11]]
-    elif name_of_scale in 'escala_tono_a_tono' or name_of_scale in 'escala_de_blues':
+
+    elif name_of_scale in 'escala_tono_a_tono' or 'escala_de_blues' in name_of_scale:
         return [scale[6], scale[7], scale[8], scale[9], scale[10], scale[11]]
+
+    elif name_of_scale in 'escala_semitono_a_tono' or name_of_scale in 'escala_tono_a_semitono':
+        return [scale[8], scale[9], scale[10], scale[11], scale[12], scale[13], scale[14], scale[15]]
+
     else:
         return [scale[7], scale[8], scale[9], scale[10], scale[11], scale[12], scale[6]]
 
 
 def substract_fixed_scale(scale, scale_name):
-    if scale_name in 'escala_de_blues':
+    if 'escala_de_blues' in scale_name:
         return [scale[6], scale[7], scale[8], scale[3], scale[10], scale[5]]
+
     else:
         return [scale[7], scale[8], scale[9], scale[3], scale[11], scale[12], scale[6]]
 
@@ -404,7 +410,7 @@ def standar_proccess(scale_list, tone, scale):
     out_scale = substract_scale(list_last_config, scale)
     duplicate_persistance = get_dup_persist(out_scale)
 
-    if duplicate_persistance is True and 'cromatic' not in scale:
+    if duplicate_persistance is True and 'cromatic' not in scale and 'semitono_a_tono' not in scale and 'tono_a_semitono' not in scale:
         out_scale_reconfigured = get_some_notes_changed(out_scale, substract_scale(scale_relisted, scale), tone, scale)
     else:
         out_scale_reconfigured = out_scale
