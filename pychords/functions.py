@@ -291,6 +291,7 @@ def get_short_list_procedure(result, scale, sure, next_sure):
 
     return short_list
 
+
 def get_short_list_of_notes(sure, next_sure, scale):
     result = scale.index(next_sure) - scale.index(sure)
     short_list = get_short_list_procedure(result, scale, sure, next_sure)
@@ -523,6 +524,7 @@ def get_fretboard_note_positions(note):
     else:
         return [{'cord': 'None', 'fret': 'None'}]
 
+
 def get_fretboard_c_positions():
     return [
         {'cord': 1, 'fret': 8},
@@ -532,6 +534,7 @@ def get_fretboard_c_positions():
         {'cord': 4, 'fret': 10},
         {'cord': 5, 'fret': 3},
     ]
+
 
 def get_fretboard_c_sharp_positions():
     return [
@@ -543,6 +546,7 @@ def get_fretboard_c_sharp_positions():
         {'cord': 5, 'fret': 4},
     ]
 
+
 def get_fretboard_d_bemol_positions():
     return [
         {'cord': 1, 'fret': 9},
@@ -552,6 +556,7 @@ def get_fretboard_d_bemol_positions():
         {'cord': 4, 'fret': 11},
         {'cord': 5, 'fret': 4},
     ]
+
 
 def get_fretboard_d_positions():
     return [
@@ -563,6 +568,7 @@ def get_fretboard_d_positions():
         {'cord': 5, 'fret': 5},
     ]
 
+
 def get_fretboard_d_sharp_positions():
     return [
         {'cord': 1, 'fret': 11},
@@ -572,6 +578,7 @@ def get_fretboard_d_sharp_positions():
         {'cord': 4, 'fret': 1},
         {'cord': 5, 'fret': 6},
     ]
+
 
 def get_fretboard_e_bemol_positions():
     return [
@@ -583,6 +590,7 @@ def get_fretboard_e_bemol_positions():
         {'cord': 5, 'fret': 6},
     ]
 
+
 def get_fretboard_e_positions():
     return [
         {'cord': 1, 'fret': 0},
@@ -592,6 +600,7 @@ def get_fretboard_e_positions():
         {'cord': 4, 'fret': 2},
         {'cord': 5, 'fret': 7},
     ]
+
 
 def get_fretboard_f_positions():
     return [
@@ -603,6 +612,7 @@ def get_fretboard_f_positions():
         {'cord': 5, 'fret': 8},
     ]
 
+
 def get_fretboard_f_sharp_positions():
     return [
         {'cord': 1, 'fret': 2},
@@ -612,6 +622,7 @@ def get_fretboard_f_sharp_positions():
         {'cord': 4, 'fret': 4},
         {'cord': 5, 'fret': 9},
     ]
+
 
 def get_fretboard_g_bemol_positions():
     return [
@@ -623,6 +634,7 @@ def get_fretboard_g_bemol_positions():
         {'cord': 5, 'fret': 9},
     ]
 
+
 def get_fretboard_g_positions():
     return [
         {'cord': 1, 'fret': 3},
@@ -632,6 +644,7 @@ def get_fretboard_g_positions():
         {'cord': 4, 'fret': 5},
         {'cord': 5, 'fret': 10},
     ]
+
 
 def get_fretboard_g_sharp_positions():
     return [
@@ -643,6 +656,7 @@ def get_fretboard_g_sharp_positions():
         {'cord': 5, 'fret': 11},
     ]
 
+
 def get_fretboard_a_bemol_positions():
     return [
         {'cord': 1, 'fret': 4},
@@ -652,6 +666,7 @@ def get_fretboard_a_bemol_positions():
         {'cord': 4, 'fret': 6},
         {'cord': 5, 'fret': 11},
     ]
+
 
 def get_fretboard_a_positions():
     return [
@@ -663,6 +678,7 @@ def get_fretboard_a_positions():
         {'cord': 5, 'fret': 0},
     ]
 
+
 def get_fretboard_a_sharp_positions():
     return [
         {'cord': 1, 'fret': 6},
@@ -673,6 +689,7 @@ def get_fretboard_a_sharp_positions():
         {'cord': 5, 'fret': 1},
     ]
 
+
 def get_fretboard_b_bemol_positions():
     return [
         {'cord': 1, 'fret': 6},
@@ -682,6 +699,7 @@ def get_fretboard_b_bemol_positions():
         {'cord': 4, 'fret': 8},
         {'cord': 5, 'fret': 1},
     ]
+
 
 def get_fretboard_b_positions():
     return [
