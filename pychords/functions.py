@@ -32,11 +32,15 @@ def config_scale(note_list, scale, tone):
     scales_dict = read_formula(scale)
     scale_list = []
     ref = 0
+
     for e in range(len(scales_dict)):
+
         try:
             scale_list.append(note_list[ref])
+
         except IndexError:
             return 'Error: ', tone, ' no existe.'
+
         ref = ref + scales_dict[e]
 
     out_scale = standar_proccess(scale_list, tone, scale)
@@ -86,27 +90,20 @@ def return_pos_tone(tone, notes):
 
 
 def take_position(tone, notes):
-    if tone == 'Fb' or tone == 'Cb' or tone == 'E#' or tone == 'B#':
-        pass
-    else:
-        pos_tone = return_pos_tone(tone, notes)
-    try:
-        return pos_tone - 1
-    except UnboundLocalError:
-        return 'Error: ', tone, ' no existe.'
+    tones_to_not_take_position = ['Fb', 'Cb', 'E#', 'B#']
 
+    if tone not in tones_to_not_take_position:
+        pos_tone = return_pos_tone(tone, notes) - 1
 
-def search_sure_notes(scale_list):
-    sures = []
-    for z in range(len(scale_list)):
-        if "." not in scale_list[z]:
-            sures.append(z)
-    return sures
+        return pos_tone
+
+def get_index_of_notes_without_sharps_or_bemols(scale_list):
+    return [scale_list.index(i) for i in scale_list if '#' not in i]
 
 
 def setup_scale(scale, tone):
     out_list = scale + scale
-    sures = search_sure_notes(out_list)
+    sures = get_index_of_notes_without_sharps_or_bemols(out_list)
 
     if len(sures) != len(out_list):
         for n in range(len(out_list)):
@@ -177,7 +174,7 @@ def get_dup_persist(scale):
 
 
 def get_list_of_sures(swp):
-    sures = search_sure_notes(swp)
+    sures = get_index_of_notes_without_sharps_or_bemols(swp)
     result_list = []
 
     for n in range(len(sures) - 1):
@@ -200,7 +197,7 @@ def get_some_notes_changed(scale, scale_with_points, tone, scale_name):
     scl = scale + scale
     notes = take_all_notes_from(tone)
     swp = scale_with_points + scale_with_points
-    sures = search_sure_notes(swp)
+    sures = get_index_of_notes_without_sharps_or_bemols(swp)
     list_of_required_notes = []
 
     list_of_sure_notes = []
@@ -257,15 +254,6 @@ def next_sure_note(root_note, swp):
     return save
 
 
-def get_required_notes(short_scale):
-    count = 0
-    for note in short_scale:
-        if '.' in note:
-            count = count + 1
-
-    return count
-
-
 def get_short_list_of_notes_reverse(scale, sure, next_sure):
     result = listRightIndex(scale, next_sure) - scale.index(sure)
     short_list = get_short_list(result, scale, sure, next_sure)
@@ -300,17 +288,15 @@ def get_short_list_of_notes(sure, next_sure, scale):
 
 
 def get_changes(color_of_not_sure_notes, req, scale, swp, tone, scale_name):
-    scales_wp = swp + swp
-    scl = scale + scale
-    sures = search_sure_notes(scales_wp)
+    scales_wp = swp*2
+    scl = scale*2
+    sures = get_index_of_notes_without_sharps_or_bemols(scales_wp)
     not_processed_scale = take_all_notes_from(tone)
     not_processed_scale = not_processed_scale + not_processed_scale
 
-    for n in range(len(scales_wp)):
-        if '.' in scales_wp[n]:
-            pass
-        else:
-            sure = scales_wp[n]
+    for i in range(len(scales_wp)):
+        if not '.' in scales_wp[i]:
+            sure = scales_wp[i]
             next_sure = next_sure_note(sure, scales_wp)
             white_count = get_the_count_for_each_color(get_the_steps_for(sure, next_sure, not_processed_scale))
             short_list = get_short_list_of_notes(sure, next_sure, scales_wp)
@@ -318,50 +304,66 @@ def get_changes(color_of_not_sure_notes, req, scale, swp, tone, scale_name):
 
             if req > white_count[0]:
                 good_notes = return_good_notes(short_list)
-                for t in range(len(good_notes) - 1):
-                    scl[scl.index(good_notes[0]) + t] = good_notes[t]
+                good_notes.append(i for i in short_list if not '#' in i)
 
-            result = substract_fixed_scale(scl, scale_name)
-    try:
-        return result
-    except UnboundLocalError:
-        return result
+                for e in range(len(good_notes) - 1):
+                    scl[scl.index(good_notes[0]) + e] = good_notes[e]
+
+        result = substract_fixed_scale(scl, scale_name)
+
+    return result
 
 
 def return_good_notes(short_list):
-    lista_buena = []
+    reformated_notes_list = []
+
+    first_note = short_list[0]
+    latest_note = short_list[-1]
+    second_note_first_char = short_list[1][0]
+    penultimate_note_fourth_char = short_list[-2][3]
 
     for x in range(len(short_list)):
-        if '.' in short_list[x]:
+        if '#' in short_list[x]:
+            print 'la nota tiene #'
+            note_first_char = short_list[x][0]
+            note_fourth_char = short_list[x][3]
+            previous_note = short_list[x - 1]
+            next_note = short_list[x + 1]
+            note_with_sharp = short_list[x][0:2]
+            note_with_bemol = short_list[x][-2::]
 
-            if short_list[1].split('.')[0][0:1] not in short_list[0] and short_list[len(short_list) - 2].split('.')[1][0:1] not in short_list[len(short_list) - 1]:
-                lista_buena.append(short_list[x].split('.')[0])
+            if second_note_first_char not in first_note and penultimate_note_fourth_char not in latest_note:
+                print 'aqi'
 
-            else:
-                if short_list[1].split('.')[0][0:1] not in short_list[0] and short_list[len(short_list) - 2].split('.')[1][0:1] in short_list[len(short_list) - 1]:
-                    lista_buena.append(short_list[x].split('.')[0])
-
-                elif short_list[1].split('.')[0][0:1] in short_list[0] and short_list[len(short_list) - 2].split('.')[1][0:1] not in short_list[len(short_list) - 1]:
-                    lista_buena.append(short_list[x].split('.')[1])
+                if note_first_char in reformated_notes_list[len(reformated_notes_list) - 1]:
+                    reformated_notes_list.append(note_with_bemol)
 
                 else:
-                    if short_list[x].split('.')[0][0:1] in short_list[x - 1] and short_list[x].split('.')[1][0:1] + '#' in short_list[x + 1].split('.')[0]:
-                        if short_list[x].split('.')[0][0:1] in lista_buena[len(lista_buena) - 1]:
-                            lista_buena.append(short_list[x].split('.')[1])
-                        else:
-                            lista_buena.append(short_list[x].split('.')[0])
-                    else:
-                        if short_list[x].split('.')[0][0:1] in lista_buena[len(lista_buena) - 1]:
-                            if short_list[x].split('.')[1][0:1] in short_list[x + 1] and '.' not in short_list[x + 1]:
-                                lista_buena.append(short_list[x].split('.')[0])
-                            else:
-                                lista_buena.append(short_list[x].split('.')[1])
-                        else:
-                            lista_buena.append(short_list[x].split('.')[0])
-        else:
-            lista_buena.append(short_list[x])
+                    reformated_notes_list.append(note_with_sharp)
 
-    return lista_buena
+            elif note_fourth_char in next_note and '#' not in next_note:
+                reformated_notes_list.append(note_with_sharp)
+
+            elif note_first_char in reformated_notes_list[len(reformated_notes_list) - 1]:
+                reformated_notes_list.append(note_with_bemol)
+
+            elif second_note_first_char not in first_note:
+
+                reformated_notes_list.append(note_with_sharp)
+
+            elif penultimate_note_fourth_char in latest_note:
+                reformated_notes_list.append(note_with_sharp)
+
+            elif second_note_first_char in first_note and penultimate_note_fourth_char not in latest_note:
+                reformated_notes_list.append(note_with_bemol)
+
+            else:
+                reformated_notes_list.append(note_with_sharp)
+
+        else:
+            reformated_notes_list.append(short_list[x])
+
+    return reformated_notes_list
 
 
 def get_the_steps_for(first_note, last_note, notes):
@@ -405,12 +407,8 @@ def read_scales_from_json():
 
 
 def read_formula(scale):
-    # read json scale file
     scales_dict = json.loads(read_scales_from_json())
-    # get the formula
-
     for key, value in scales_dict.items():
-
         if scale in value:
             scale_formula = value[scale]
 

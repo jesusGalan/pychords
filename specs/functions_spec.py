@@ -7,21 +7,6 @@ from pychords.functions import *
 
 
 with description("App pyChords"):
-
-    with context('function for take the int of required notes must do it'):
-
-        with it('must return required scale note'):
-
-            scale = ['C', 'C#.Db', 'D#.Eb', 'F#.Gb', 'G']
-
-            expect(get_required_notes(scale)).to(equal(3))
-
-        with it('must return required scale note'):
-
-            scale = ['C', 'C#.Db', 'D']
-
-            expect(get_required_notes(scale)).to(equal(1))
-
     with context('function for take required notes must do it'):
 
         with it('must return required scale notes'):
@@ -63,7 +48,7 @@ with description("App pyChords"):
             short_list = ['C', 'C#.Db', 'D#.Eb', 'F#.Gb', 'G']
 
             expect(return_good_notes(short_list)).to(equal(['C', 'Db', 'Eb', 'F#', 'G']))
-
+            
         with it("must return good notes with a short list"):
 
             short_list = ['C', 'D#.Eb', 'F#.Gb', 'A']
