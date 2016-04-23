@@ -10,6 +10,12 @@ with description('Generating scales'):
         with context('escala hexatonica de blues'):
 
             with it('escala_hexatonica_de_blues_primer_grado'):
+                note = "C"
+                scale = "escala_hexatonica_de_blues_primer_grado"
+
+                expect(scales(scale, note)).to(equal(['C', 'D#', 'F', 'F#', 'G', 'A#']))
+
+            with it('escala_hexatonica_de_blues_primer_grado'):
                 note = "B"
                 scale = "escala_hexatonica_de_blues_primer_grado"
 
@@ -44,10 +50,3 @@ with description('Generating scales'):
                 scale = "escala_hexatonica_de_blues_sexto_grado"
 
                 expect(scales(scale, note)).to(equal(['A', 'B', 'D', 'E', 'F', 'Gb']))
-
-
-            with it('escala_hexatonica_de_blues_primer_grado'):
-                note = "C"
-                scale = "escala_hexatonica_de_blues_primer_grado"
-
-                expect(scales(scale, note)).to(equal(['C', 'D#', 'F', 'F#', 'G', 'A#']))

@@ -9,7 +9,7 @@ with description('Generating scales'):
 
         with context("escala menor armonica"):
 
-            with it("must return Gb minor harmonic"):
+            with it("escala_menor_armonica"):
                 note = 'Gb'
                 scale = 'escala_menor_armonica'
 
@@ -30,7 +30,7 @@ with description('Generating scales'):
                 expect(scales(scale, note)).to(equal(
                     ['A', 'B', 'C#', 'D', 'F', 'Gb', 'G#']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
 
                 note = "C"
                 scale = "escala_menor_romana"
@@ -38,112 +38,112 @@ with description('Generating scales'):
                 expect(scales(scale, note)).to(equal(
                     ['C', 'D', 'Eb', 'F#', 'G', 'A', 'Bb']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "C#"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['C#', 'D#', 'E', 'G', 'Ab', 'Bb', 'B']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "Db"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['C#', 'D#', 'E', 'G', 'Ab', 'Bb', 'B']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "D"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['D', 'E', 'F', 'G#', 'A', 'B', 'C']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "D#"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['Eb', 'F', 'Gb', 'A', 'Bb', 'C', 'Db']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "Eb"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['Eb', 'F', 'Gb', 'A', 'Bb', 'C', 'Db']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "E"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['E', 'F#', 'G', 'A#', 'B', 'C#', 'D']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "F"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['F', 'G', 'Ab', 'B', 'C', 'D', 'Eb']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "F#"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['F#', 'G#', 'A', 'C', 'Db', 'Eb', 'E']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "Gb"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['F#', 'G#', 'A', 'C', 'Db', 'Eb', 'E']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "G"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['G', 'A', 'Bb', 'C#', 'D', 'E', 'F']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "G#"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['Ab', 'A#', 'B', 'D', 'Eb', 'F', 'Gb']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "Ab"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['Ab', 'A#', 'B', 'D', 'Eb', 'F', 'Gb']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "A"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['A', 'B', 'C', 'D#', 'E', 'F#', 'G']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "A#"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['Bb', 'C', 'Db', 'E', 'F', 'G', 'Ab']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "Bb"
                 scale = "escala_menor_romana"
 
                 expect(scales(scale, note)).to(equal(
                     ['Bb', 'C', 'Db', 'E', 'F', 'G', 'Ab']))
 
-            with it('must return dorian #4'):
+            with it('escala_menor_romana'):
                 note = "B"
                 scale = "escala_menor_romana"
 
@@ -164,21 +164,21 @@ with description('Generating scales'):
                 expect(scales(scale, note)).to(equal(
                     ['D', 'F', 'Gb', 'G#', 'A', 'B', 'C#']))
 
-            with it("must return Gb superlocrian bb7"):
+            with it("escala_superlocria_bb7"):
                 note = 'Gb'
                 scale = 'escala_superlocria_bb7'
 
                 expect(scales(scale, note)).to(equal(
                     ['F#', 'G', 'A', 'Bb', 'C', 'D', 'Eb']))
 
-            with it("must return C superlocrian bb7"):
+            with it("escala_superlocrian_bb7"):
                 note = 'C'
                 scale = 'escala_superlocria_bb7'
 
                 expect(scales(scale, note)).to(equal(
                     ['C', 'Db', 'Eb', 'E', 'F#', 'G#', 'A']))
 
-            with it("must return C superlocrian bb7"):
+            with it("escala_superlocrian_bb7"):
                 note = 'C'
                 scale = 'escala_superlocria_bb7'
 

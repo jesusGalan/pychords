@@ -9,27 +9,27 @@ with description('Generating scales'):
 
         with context('escalas simétricas'):
 
-            with it('must return escala tono a tono'):
+            with it('escala_tono_a_tono'):
                 note = "B"
                 scale = "escala_tono_a_tono"
 
                 expect(scales(scale, note)).to(equal(['B', 'C#', 'D#', 'F', 'G', 'A']))
 
-            with it("must return E semitone a tone scale"):
+            with it("escala_semitono_a_tono"):
                 note = "E"
                 scale = "escala_semitono_a_tono"
 
                 expect(scales(scale, note)).to(equal(
                     ['E', 'F', 'G', 'Ab', 'Bb', 'B', 'C#', 'D']))
 
-            with it("must return E semitone a tone scale"):
+            with it("escala_semitono_a_tono"):
                 note = "E"
                 scale = "escala_semitono_a_tono"
 
                 expect(scales(scale, note)).to(equal(
                     ['E', 'F', 'G', 'Ab', 'Bb', 'B', 'C#', 'D']))
 
-            with it("must return C cromatic scale"):
+            with it("escala_cromatica"):
                 note = "C"
                 scale = "escala_cromatica"
 
