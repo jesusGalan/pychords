@@ -6,66 +6,30 @@
                     "escala_lidia":               [2, 2, 2, 1, 2, 2, 1],
                     "escala_mixolidia":           [2, 2, 1, 2, 2, 1, 2],
                     "escala_menor_natural":       [2, 1, 2, 2, 1, 2, 2],
-                    "escala_locria":              [1, 2, 2, 1, 2, 1, 2]},
+                    "escala_locria":              [1, 2, 2, 1, 2, 2, 2]},
 
 
-    "escala_melodica":{
-                      "escala_menor_melodica":        [2, 1, 2, 2, 2, 2, 1],
-                      "escala_dorica_b9":             [1, 2, 2, 2, 2, 1, 2],
-                      "escala_lidia_#5":              [2, 2, 2, 2, 1, 2, 1],
-                      "escala_lidia_b7":              [2, 2, 2, 1, 2, 1, 2],
-                      "escala_mixolidia_b6":          [2, 2, 1, 2, 1, 2, 2],
-                      "escala_eolica_b5":             [2, 1, 2, 1, 2, 2, 2],
-                      "escala_locria_b4":             [1, 2, 1, 2, 2, 2, 2]},
+    "escala_melódica":{
+                      "escala_menor_melodica":    [2, 1, 2, 2, 2, 2, 1],
+                      "escala_java":              [1, 2, 2, 2, 2, 1, 2],
+                      "escala_lidia_#5":          [2, 2, 2, 2, 1, 2, 1],
+                      "escala_lidia_b7":          [2, 2, 2, 1, 2, 1, 2],
+                      "escala_hindustan":         [2, 2, 1, 2, 1, 2, 2],
+                      "escala_locria_natural_2":  [2, 1, 2, 1, 2, 2, 2],
+                      "escala_alterada":          [1, 2, 1, 2, 2, 2, 2]},
 
 
-
-    "escala_armonica_menor":{
+    "escala_armónica_menor":{
                       "escala_menor_armonica":      [2, 1, 2, 2, 1, 3, 1],
                       "escala_locria_natural_6":    [1, 2, 2, 1, 3, 1, 2],
                       "escala_jonica_#5":           [2, 2, 1, 3, 1, 2, 1],
-
-                      "escala_dorica_#4":           [2, 1, 3, 1, 2, 1, 2],
-                      "escala_rumana":              [2, 1, 3, 1, 2, 1, 2],
-
+                      "escala_menor_romana":        [2, 1, 3, 1, 2, 1, 2],
                       "escala_frigia_mayor":        [1, 3, 1, 2, 1, 2, 2],
                       "escala_lidia_#2":            [3, 1, 2, 1, 2, 2, 1],
                       "escala_superlocria_bb7":     [1, 2, 1, 2, 2, 1, 3]},
 
-    "escala_napolitana":{
-                      "escala_napolitana_grado_1":  [1, 2, 2, 2, 2, 2, 1],
-                      "escala_napolitana_grado_2":  [2, 2, 2, 2, 2, 1, 1],
-                      "escala_napolitana_grado_3":  [2, 2, 2, 2, 1, 1, 2],
-                      "escala_napolitana_grado_4":  [2, 2, 2, 1, 1, 2, 2],
-                      "escala_napolitana_grado_5":  [2, 2, 1, 1, 2, 2, 2],
-                      "escala_napolitana_grado_6":  [2, 1, 1, 2, 2, 2, 2],
-                      "escala_napolitana_grado_7":  [1, 1, 2, 2, 2, 2, 2]},
-
-    "escala_napolitana_menor":{
-                      "escala_napolitana_menor_grado_1": [1, 2, 2, 2, 1, 3, 1],
-                      "escala_napolitana_menor_grado_2": [2, 2, 2, 1, 3, 1, 1],
-                      "escala_napolitana_menor_grado_3": [2, 2, 1, 3, 1, 1, 2],
-                      "escala_napolitana_menor_grado_4": [2, 1, 3, 1, 1, 2, 2],
-                      "escala_napolitana_menor_grado_5": [1, 3, 1, 1, 2, 2, 2],
-                      "escala_napolitana_menor_grado_6": [3, 1, 1, 2, 2, 2, 1],
-                      "escala_napolitana_menor_grado_7": [1, 1, 2, 2, 2, 1, 3]},
-
-
-
-    "escala_bizantina":{
-                      "escala_bizantina":               [1, 3, 1, 2, 1, 3, 1],
-                      "escala_lidia_#2_#6":             [3, 1, 2, 1, 3, 1, 1],
-                      "escala_frigia_b4_bb7":           [1, 2, 1, 3, 1, 1, 3],
-                      "escala_armonica_menor_#4":       [2, 1, 3, 1, 1, 3, 1],
-
-                      "escala_mixolidia_b5_b9":         [1, 3, 1, 1, 3, 1, 2],
-                      "escala_oriental":                [1, 3, 1, 1, 3, 1, 2],
-
-                      "escala_jonica_aumentada_#2":     [3, 1, 1, 3, 1, 2, 1],
-                      "escala_locria_bb3_bb7":          [1, 1, 3, 1, 2, 1, 3]},
-
-    "escala_armonica_mayor":{
-                      "escala_mixta":                   [2, 2, 1, 2, 1, 3, 1],
+    "escala_mixta_o_hindú":{
+                      "escala_armonica_mayor":          [2, 2, 1, 2, 1, 3, 1],
                       "escala_locria_natural_2_6":      [2, 1, 2, 1, 3, 1, 2],
                       "escala_frigia_mayor_#9":         [1, 2, 1, 3, 1, 2, 2],
                       "escala_lidia_menor":             [2, 1, 3, 1, 2, 2, 1],
@@ -73,7 +37,56 @@
                       "escala_lidia_#2_#5":             [3, 1, 2, 2, 1, 2, 1],
                       "escala_locria_bb7":              [1, 2, 2, 1, 2, 1, 3]},
 
-    "escala_de_hexatonica_blues":{
+
+
+    "escala_turca":{
+                      "escala_turca_primer_grado":   [1, 2, 2, 2, 2, 2, 1],
+                      "escala_turca_segundo_grado":  [2, 2, 2, 2, 2, 1, 1],
+                      "escala_turca_tercer_grado":   [2, 2, 2, 2, 1, 1, 2],
+                      "escala_turca_cuarto_grado":   [2, 2, 2, 1, 1, 2, 2],
+                      "escala_turca_quinto_grado":   [2, 2, 1, 1, 2, 2, 2],
+                      "escala_turca_sexto_grado":    [2, 1, 1, 2, 2, 2, 2],
+                      "escala_turca_septimo_grado":  [1, 1, 2, 2, 2, 2, 2]},
+
+    "escala_hungara_mayor":{
+                      "escala_hungara_mayor_primer_grado":        [3, 1, 2, 1, 2, 1, 2],
+                      "escala_hungara_mayor_segundo_grado":       [1, 2, 1, 2, 1, 2, 3],
+                      "escala_hungara_mayor_tercer_grado":        [2, 1, 2, 1, 2, 3, 1],
+                      "escala_hungara_mayor_cuarto_grado":        [1, 2, 1, 2, 3, 1, 2],
+                      "escala_hungara_mayor_quinto_grado":        [2, 1, 2, 3, 1, 2, 1],
+                      "escala_hungara_mayor_sexto_grado":   [1, 2, 3, 1, 2, 1, 2],
+                      "escala_hungara_mayor_septimo_grado":       [2, 3, 1, 2, 1, 2, 1]},
+
+    "escala_englimatic":{
+                      "escala_englimatic_primer_grado":  [1, 3, 2, 2, 2, 1, 1],
+                      "escala_englimatic_segundo_grado": [3, 2, 2, 2, 1, 1, 1],
+                      "escala_englimatic_tercer_grado":  [1, 3, 2, 2, 2, 1, 1],
+                      "escala_englimatic_cuarto_grado":  [2, 2, 1, 1, 1, 3, 2],
+                      "escala_englimatic_quinto_grado":  [2, 1, 1, 1, 3, 2, 2],
+                      "escala_englimatic_sexto_grado":   [1, 1, 1, 3, 2, 2, 2],
+                      "escala_englimatic_septimo_grado": [1, 1, 1, 3, 2, 2, 2]},
+
+    "escala_napolitana_menor":{
+                      "escala_napolitana_menor":         [1, 2, 2, 2, 1, 3, 1],
+                      "escala_lidia_#6":                 [2, 2, 2, 1, 3, 1, 1],
+                      "escala_napolitana_menor_grado_3": [2, 2, 1, 3, 1, 1, 2],
+                      "escala_gipsy":                    [2, 1, 3, 1, 1, 2, 2],
+                      "escala_locria_mayor":             [1, 3, 1, 1, 2, 2, 2],
+                      "escala_napolitana_menor_grado_6": [3, 1, 1, 2, 2, 2, 1],
+                      "escala_napolitana_menor_grado_7": [1, 1, 2, 2, 2, 1, 3]},
+
+
+
+    "escala_napolitana_mayor":{
+                      "escala_persa":                   [1, 3, 1, 2, 1, 3, 1],
+                      "escala_lidia_#2_#6":             [3, 1, 2, 1, 3, 1, 1],
+                      "escala_frigia_b4_bb7":           [1, 2, 1, 3, 1, 1, 3],
+                      "escala_doble_armonica_menor":    [2, 1, 3, 1, 1, 3, 1],
+                      "escala_oriental":                [1, 3, 1, 1, 3, 1, 2],
+                      "escala_jonica_aumentada_#2":     [3, 1, 1, 3, 1, 2, 1],
+                      "escala_locria_bb3_bb7":          [1, 1, 3, 1, 2, 1, 3]},
+
+    "escala_de_hexatónica_blues":{
                       "escala_hexatonica_de_blues_primer_grado": [3, 2, 1, 1, 3, 2],
                       "escala_hexatonica_de_blues_segundo_grado": [2, 1, 1, 3, 2, 3],
                       "escala_hexatonica_de_blues_tercer_grado": [1, 1, 3, 2, 3, 2],
@@ -81,7 +94,7 @@
                       "escala_hexatonica_de_blues_quinto_grado": [3, 2, 3, 2, 1, 1],
                       "escala_hexatonica_de_blues_sexto_grado": [2, 3, 2, 1, 1, 3]},
 
-    "escala_heptatonica_de_blues":{
+    "escala_heptatónica_de_blues":{
                       "escala_heptatonica_de_blues_primer_grado":  [3, 1, 1, 1, 1, 3, 2],
                       "escala_heptatonica_de_blues_segundo_grado": [1, 1, 1, 1, 3, 2, 3],
                       "escala_heptatonica_de_blues_tercer_grado":  [1, 1, 1, 3, 2, 3, 1],
@@ -90,10 +103,7 @@
                       "escala_heptatonica_de_blues_sexto_grado":   [3, 2, 3, 1, 1, 1, 1],
                       "escala_heptatonica_de_blues_septimo_grado": [2, 3, 1, 1, 1, 1, 3]},
 
-
-
-
-    "escalas_especiales":{
+    "escalas_simétricas":{
                       "escala_tono_a_tono":             [2, 2, 2, 2, 2, 2],
                       "escala_semitono_a_tono":         [1, 2, 1, 2, 1, 2, 1, 2],
                       "escala_tono_a_semitono":         [2, 1, 2, 1, 2, 1, 2, 1],

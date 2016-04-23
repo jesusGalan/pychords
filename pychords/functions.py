@@ -45,29 +45,29 @@ def config_scale(note_list, scale, tone):
 
 
 def get_the_pos_for(alt, tone, notes):
-    if alt == 'b':
 
+    if alt == 'b':
         for x in range(len(notes)):
             if '.' in notes[x]:
                 if tone in notes[x] and ('b' in tone or '#' not in tone):
-                    pos_tone = x - 1
+                    _pos_tone = x - 1
             else:
                 if tone in notes[x]:
-                    pos_tone = x
+                    _pos_tone = x
 
     elif alt == '#':
         for x in range(len(notes)):
             if tone in notes[x]:
-                pos_tone = x + 1
+                _pos_tone = x + 1
     else:
         for x in range(len(notes)):
             if '.' in notes[x]:
                 pass
             else:
                 if tone in notes[x]:
-                    pos_tone = x + 1
+                    _pos_tone = x + 1
 
-    return pos_tone
+    return _pos_tone
 
 
 def return_pos_tone(tone, notes):
@@ -121,7 +121,7 @@ def substract_scale(scale, name_of_scale):
         return [scale[0], scale[1], scale[2], scale[3], scale[4], scale[5], scale[6], scale[7], scale[8], scale[9], scale[10], scale[11]]
 
     elif name_of_scale in 'escala_tono_a_tono' or 'escala_hexatonica_de_blues' in name_of_scale:
-        return [scale[6], scale[7], scale[8], scale[9], scale[10], scale[11]]
+        return [scale[6], scale[7], scale[8], scale[9], scale[10], scale[5]]
 
     elif name_of_scale in 'escala_semitono_a_tono' or name_of_scale in 'escala_tono_a_semitono':
         return [scale[8], scale[9], scale[10], scale[11], scale[12], scale[13], scale[14], scale[15]]
