@@ -5,9 +5,9 @@ USAGE EXAMPLE:
 
 python pyChords.py SCALE_NAME_WITHOUT_SPACES TONE
 
-python pyChords.py escala_rumana Gb
+python pychords/functions.py escala_menor_romana
 
-python pyChords.py escala_mayor_natural C#
+python pychords/functions.py escala_mayor_natural
 
 
 Copyright (C) 2016  jgalanc
@@ -22,6 +22,11 @@ Copyright (C) 2016  jgalanc
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
+for install the requirements you can do:
+
+    >> python setup.py develop
+
+    (an activated virtualenv is recommended)
 
 tested with expects and mamba:
 
@@ -29,4 +34,4 @@ tested with expects and mamba:
 
 	- Mamba: pip install mamba
 
-    >> mamba specs.py
+    >> mamba
