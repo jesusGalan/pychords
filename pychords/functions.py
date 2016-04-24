@@ -706,3 +706,8 @@ def get_fretboard_b_positions():
         {'cord': 4, 'fret': 9},
         {'cord': 5, 'fret': 2},
     ]
+
+if __name__ == '__main__':
+    print '\n'
+    print debug_scale(sys.argv[1])
+    print '\n'
