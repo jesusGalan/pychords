@@ -5,7 +5,7 @@ USAGE EXAMPLE:
 
 python pyChords.py SCALE_NAME_WITHOUT_SPACES TONE
 
-python pyChords.py escala_romana_menor Gb
+python pyChords.py escala_menor_romana Gb
 
 python pyChords.py escala_mayor_natural C#
 
