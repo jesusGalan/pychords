@@ -324,7 +324,6 @@ def return_good_notes(short_list):
 
     for x in range(len(short_list)):
         if '#' in short_list[x]:
-            print 'la nota tiene #'
             note_first_char = short_list[x][0]
             note_fourth_char = short_list[x][3]
             previous_note = short_list[x - 1]
@@ -333,7 +332,6 @@ def return_good_notes(short_list):
             note_with_bemol = short_list[x][-2::]
 
             if second_note_first_char not in first_note and penultimate_note_fourth_char not in latest_note:
-                print 'aqi'
 
                 if note_first_char in reformated_notes_list[len(reformated_notes_list) - 1]:
                     reformated_notes_list.append(note_with_bemol)
