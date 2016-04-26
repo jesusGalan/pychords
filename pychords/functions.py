@@ -3,6 +3,7 @@
 import json
 import sys
 import os
+from collections import OrderedDict
 
 
 SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales.json')
@@ -405,7 +406,7 @@ def read_scales_from_json():
 
 
 def read_formula(scale):
-    scales_dict = json.loads(read_scales_from_json())
+    scales_dict = json.loads(read_scales_from_json(), object_pairs_hook=OrderedDict)
     for key, value in scales_dict.items():
         if scale in value:
             scale_formula = value[scale]
@@ -475,7 +476,7 @@ def get_grade_name_list_of_scale(scale):
 
 def parse_scales_json_to_python():
     with open(SCALES_JSON_PATH, 'rb') as _file:
-        json_content = json.loads(_file.read())
+        json_content = json.loads(_file.read(), object_pairs_hook=OrderedDict)
 
         # sanitize check
         _file.close()
