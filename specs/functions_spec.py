@@ -264,3 +264,24 @@ with description("App pyChords"):
             expect(fretboard_position).to(contain({'cord': 3, 'fret': 4}))
             expect(fretboard_position).to(contain({'cord': 4, 'fret': 9}))
             expect(fretboard_position).to(contain({'cord': 5, 'fret': 2}))
+
+    with context('showing scales for given positions'):
+
+        with it('return the main scale'):
+
+            expect(show_scale_for(
+                ["1", "2", "3", "4", "5", "6", "7"])).to(equal(
+                    ['escala_mayor_natural']))
+
+        with it('return differents scales'):
+
+            expect(show_scale_for(
+                ["1", "2", "3", "4", "5", "6"])).to(equal(
+                    ['escala_mixolidia', 'escala_mayor_natural']))
+
+        with it('return differents scales'):
+
+            expect(show_scale_for(
+                ["b2", "b3", "4", "5", "6", "b7"])).to(equal(
+                    ['escala_java']))
+

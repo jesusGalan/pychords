@@ -7,6 +7,7 @@ from collections import OrderedDict
 
 
 SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales.json')
+POSITIONS_JSON_PATH = os.path.join(os.path.dirname(__file__), 'positions.json')
 
 
 def scales(scale_name, tone):
@@ -398,7 +399,7 @@ def listRightIndex(alist, value):
     return len(alist) - alist[-1::-1].index(value) - 1
 
 
-def read_scales_from_json():
+def read_scales_from_json(SCALES_JSON_PATH):
     with open(SCALES_JSON_PATH, 'rb') as f:
         content = f.read()
 
@@ -406,7 +407,7 @@ def read_scales_from_json():
 
 
 def read_formula(scale):
-    scales_dict = json.loads(read_scales_from_json(), object_pairs_hook=OrderedDict)
+    scales_dict = json.loads(read_scales_from_json(SCALES_JSON_PATH), object_pairs_hook=OrderedDict)
     for key, value in scales_dict.items():
         if scale in value:
             scale_formula = value[scale]
@@ -707,8 +708,121 @@ def get_fretboard_b_positions():
         {'cord': 4, 'fret': 9},
         {'cord': 5, 'fret': 2},
     ]
+def get_identic_nomenclature(element):
+    if element == '1':
+        return '1'
+
+    elif element == 'b2':
+        return 'b9'
+
+    elif element == '2':
+        return 'bb3'
+
+    elif element == 'b3':
+        return '#2'
+
+    elif element == '3':
+        return 'b4'
+
+    elif element == '4':
+        return 'bb5'
+
+    elif element == 'b5':
+        return '#4'
+
+    elif element == '5':
+        return 'bb6'
+
+    elif element == 'b6':
+        return '#5'
+
+    elif element == '6':
+        return 'bb7'
+
+    elif element == 'b7':
+        return '#6'
+
+    elif element == '7':
+        return '7'
+
+    elif element == 'b9':
+        return 'b2'
+
+    elif element == 'bb3':
+        return '2'
+
+    elif element == '#2':
+        return 'b3'
+
+    elif element == 'b4':
+        return '3'
+
+    elif element == 'bb5':
+        return '4'
+
+    elif element == '#4':
+        return 'b5'
+
+    elif element == 'bb6':
+        return '5'
+
+    elif element == '#5':
+        return 'b6'
+
+    elif element == 'bb7':
+        return '6'
+
+    elif element == '#6':
+        return 'b7'
+
+    else:
+        return None
+
+
+def show_scale_for(position_list):
+    scales_dict = json.loads(read_scales_from_json(POSITIONS_JSON_PATH))
+    _list = []
+
+    for key, value in scales_dict.items():
+
+        for scale in range(len(value.items())):
+            count = 0
+
+            for position in value.items()[scale][1]:
+
+                for element in position_list:
+
+                    if position == element:
+                        count = count + 1
+
+                    else:
+                        identic_element = get_identic_nomenclature(element)
+                        if identic_element == None:
+                            print 'No se que es: ', element
+                            print '\n'
+                            exit()
+                        if position == identic_element:
+                            count = count + 1
+
+
+            if count == len(position_list):
+
+                if 'cromatic' not in value.items()[scale][0]:
+                    _list.append(value.items()[scale][0])
+
+            else:
+                pass
+
+    return _list
+
 
 if __name__ == '__main__':
+    _list = []
+    for argument in range(len(sys.argv)):
+        if argument > 0:
+            _list.append(sys.argv[argument])
+
     print '\n'
-    print debug_scale(sys.argv[1])
+    for x in show_scale_for(_list):
+        print x
     print '\n'
