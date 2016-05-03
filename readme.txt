@@ -1,14 +1,19 @@
 Welcome to pyChords!
 
-
 USAGE EXAMPLE:
 
-python pyChords.py SCALE_NAME_WITHOUT_SPACES TONE
+>python pychords/functions.py b2 3 '#4' 7
 
-python pychords/functions.py escala_menor_romana
+escala heptatonica de blues quinto grado
+escala englimatic primer grado
+escala alterada
+escala hexatonica de blues cuarto grado
 
-python pychords/functions.py escala_mayor_natural
+>python pychords/functions.py 2 3 b5 6 '#6'
 
+escala turca septimo grado
+escala turca tercer grado
+escala lidia b7
 
 Copyright (C) 2016  jgalanc
 
