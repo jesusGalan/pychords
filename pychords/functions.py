@@ -297,7 +297,7 @@ def get_changes(color_of_not_sure_notes, req, scale, swp, tone, scale_name):
     not_processed_scale = not_processed_scale + not_processed_scale
 
     for i in range(len(scales_wp)):
-        if '.' in not scales_wp[i]:
+        if '.' not in scales_wp[i]:
             sure = scales_wp[i]
             next_sure = next_sure_note(sure, scales_wp)
             white_count = get_the_count_for_each_color(get_the_steps_for(sure, next_sure, not_processed_scale))
