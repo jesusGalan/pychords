@@ -290,14 +290,14 @@ def get_short_list_of_notes(sure, next_sure, scale):
 
 
 def get_changes(color_of_not_sure_notes, req, scale, swp, tone, scale_name):
-    scales_wp = swp*2
-    scl = scale*2
+    scales_wp = swp * 2
+    scl = scale * 2
     sures = get_index_of_notes_without_sharps_or_bemols(scales_wp)
     not_processed_scale = take_all_notes_from(tone)
     not_processed_scale = not_processed_scale + not_processed_scale
 
     for i in range(len(scales_wp)):
-        if not '.' in scales_wp[i]:
+        if '.' in not scales_wp[i]:
             sure = scales_wp[i]
             next_sure = next_sure_note(sure, scales_wp)
             white_count = get_the_count_for_each_color(get_the_steps_for(sure, next_sure, not_processed_scale))
@@ -779,7 +779,7 @@ def get_identic_nomenclature(element):
         return None
 
 
-def show_scale_for(position_list):
+def show_scale_for_positions(position_list):
     scales_dict = json.loads(read_scales_from_json(POSITIONS_JSON_PATH))
     _list = []
 
@@ -816,6 +816,9 @@ def show_scale_for(position_list):
     return _list
 
 
+def show_scale_for_notes(note_list):
+    pass
+
 if __name__ == '__main__':
     _list = []
     for argument in range(len(sys.argv)):
@@ -823,6 +826,6 @@ if __name__ == '__main__':
             _list.append(sys.argv[argument])
 
     print '\n'
-    for x in show_scale_for(_list):
+    for x in show_scale_for_positions(_list):
         print x
     print '\n'

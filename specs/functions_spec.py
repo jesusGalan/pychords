@@ -48,7 +48,7 @@ with description("App pyChords"):
             short_list = ['C', 'C#.Db', 'D#.Eb', 'F#.Gb', 'G']
 
             expect(return_good_notes(short_list)).to(equal(['C', 'Db', 'Eb', 'F#', 'G']))
-            
+
         with it("must return good notes with a short list"):
 
             short_list = ['C', 'D#.Eb', 'F#.Gb', 'A']
@@ -269,19 +269,18 @@ with description("App pyChords"):
 
         with it('return the main scale'):
 
-            expect(show_scale_for(
+            expect(show_scale_for_positions(
                 ["1", "2", "3", "4", "5", "6", "7"])).to(equal(
                     ['escala_mayor_natural']))
 
         with it('return differents scales'):
 
-            expect(show_scale_for(
+            expect(show_scale_for_positions(
                 ["1", "2", "3", "4", "5", "6"])).to(equal(
                     ['escala_mixolidia', 'escala_mayor_natural']))
 
         with it('return differents scales'):
 
-            expect(show_scale_for(
+            expect(show_scale_for_positions(
                 ["b2", "b3", "4", "5", "6", "b7"])).to(equal(
                     ['escala_java']))
-
