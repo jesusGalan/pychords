@@ -284,3 +284,15 @@ with description("App pyChords"):
             expect(show_scale_for_positions(
                 ["b2", "b3", "4", "5", "6", "b7"])).to(equal(
                     ['escala_java']))
+
+    with context('search notes between notes'):
+
+        with it('return from D# and F#'):
+
+            expect(get_the_notes_between('D#', 'F#')).to(equal(
+                ['D#', 'E', 'F', 'F#']))
+
+        with it('return from D and Gb'):
+
+            expect(get_the_notes_between('D', 'Gb')).to(equal(
+                ['D', 'D#', 'E', 'F', 'Gb']))

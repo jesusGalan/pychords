@@ -99,6 +99,7 @@ def take_position(tone, notes):
 
         return pos_tone
 
+
 def get_index_of_notes_without_sharps_or_bemols(scale_list):
     return [scale_list.index(i) for i in scale_list if '#' not in i]
 
@@ -306,7 +307,7 @@ def get_changes(color_of_not_sure_notes, req, scale, swp, tone, scale_name):
 
             if req > white_count[0]:
                 good_notes = return_good_notes(short_list)
-                good_notes.append(i for i in short_list if not '#' in i)
+                good_notes.append(i for i in short_list if '#' not in i)
 
                 for e in range(len(good_notes) - 1):
                     scl[scl.index(good_notes[0]) + e] = good_notes[e]
@@ -393,6 +394,31 @@ def get_the_steps_for(first_note, last_note, notes):
                     list_of_color_notes.append('blanca')
 
     return list_of_color_notes
+
+
+def gen_double_note(_note):
+    notes = ['C', 'C#.Db', 'D', 'D#.Eb', 'E', 'F', 'F#.Gb', 'G', 'G#.Ab', 'A', 'A#.Bb', 'B']
+    for note in notes:
+        if _note in note:
+            return note
+
+
+def get_the_notes_between(first, last):
+    notes = take_all_notes_from(first)
+    new_notes = []
+    last_pos = notes.index(gen_double_note(last))
+    for note in range(len(notes)):
+        if note < last_pos:
+            new_notes.append(notes[note].split('.')[0])
+        if note == last_pos:
+            if '#' in last:
+                new_notes.append(notes[note].split('.')[0])
+            elif 'b' in last:
+                new_notes.append(notes[note].split('.')[1])
+            else:
+                new_notes.append(notes[note].split('.')[0])
+
+    return new_notes
 
 
 def listRightIndex(alist, value):
@@ -708,6 +734,8 @@ def get_fretboard_b_positions():
         {'cord': 4, 'fret': 9},
         {'cord': 5, 'fret': 2},
     ]
+
+
 def get_identic_nomenclature(element):
     if element == '1':
         return '1'
@@ -797,13 +825,13 @@ def show_scale_for_positions(position_list):
 
                     else:
                         identic_element = get_identic_nomenclature(element)
-                        if identic_element == None:
+
+                        if identic_element is None:
                             print 'No se que es: ', element
                             print '\n'
                             exit()
                         if position == identic_element:
                             count = count + 1
-
 
             if count == len(position_list):
 

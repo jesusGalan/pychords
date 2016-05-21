@@ -7,7 +7,7 @@ import wave
 import pysynth
 import pyaudio
 
-import pychords.functions as pychord_module
+import functions as pychord_module
 
 octave = 4
 
@@ -22,13 +22,51 @@ r = 16
 
 def prepare_for_pysynth(_list):
     _new_list = []
-    for elem in _list:
-        _new_list.append(tuple([elem.lower() + str(octave), n]))
+    if _list[0] == 'C':
+        for elem in _list:
+            _new_list.append(tuple([elem.lower() + str(octave), n]))
 
-    _new_list.append(tuple([_list[0].lower() + str(int(octave) + 1), n]))
+        _new_list.append(tuple([_list[0].lower() + str(int(octave) + 1), n]))
+    else:
+        pos_c = search_c_position(_list)
+        for elem in range(len(_list)):
+            if elem < pos_c:
+                _new_list.append(tuple([str(_list[elem]).lower() + str(octave), n]))
+            elif elem >= pos_c:
+                _new_list.append(tuple([str(_list[elem]).lower() + str(int(octave) + 1), n]))
+
+        _new_list.append(tuple([_list[0].lower() + str(int(octave) + 1), n]))
 
     return tuple(_new_list)
 
+
+def search_c_position(_list):
+    count = 0
+    res = 0
+
+    if 'C' in _list:
+        for elem in _list:
+            if elem == 'C':
+                res = count
+                count = count + 1
+
+            else:
+                count = count + 1
+
+    else:
+        for elem in _list:
+            try:
+                if 'C' in pychord_module.get_the_notes_between(elem, _list[_list.index(elem) + 1]):
+                    count = count + 1
+                    res = count
+                elif 'C' not in pychord_module.get_the_notes_between(elem, _list[_list.index(elem) + 1]):
+                    count = count + 1
+
+            except IndexError:
+                count = count + 1
+                print 'final de lista'
+
+    return res
 
 if __name__ == '__main__':
 
