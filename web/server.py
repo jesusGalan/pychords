@@ -12,7 +12,7 @@ import tornado.httpserver
 from pychords.functions import get_scale_name_list
 from pychords.functions import get_grade_name_list_of_scale
 from pychords.functions import get_tone_name_list_of_grade
-from pychords.functions import get_fretboard_note_positions
+from pychords.notePosition import get_fretboard_note_positions
 
 from tornado.options import define, options
 define('port', default=8000, help='Especifica el puerto', type=int)

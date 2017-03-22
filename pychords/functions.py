@@ -10,44 +10,18 @@ SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales.json')
 POSITIONS_JSON_PATH = os.path.join(os.path.dirname(__file__), 'positions.json')
 
 
-def scales(scale_name, tone):
-    note_list = take_all_notes_from(tone)
-    note_list = note_list + note_list
-    scale_list = config_scale(note_list, scale_name, tone)
-
-    return scale_list
+def init_all_notes():
+    return ['C', 'C#.Db', 'D', 'D#.Eb', 'E', 'F', 'F#.Gb', 'G', 'G#.Ab', 'A', 'A#.Bb', 'B']
 
 
 def take_all_notes_from(tone):
-    notes = ['C', 'C#.Db', 'D', 'D#.Eb', 'E', 'F', 'F#.Gb', 'G', 'G#.Ab', 'A', 'A#.Bb', 'B']
-    pos_tone = take_position(tone, notes)
-    notes = notes + notes
+    notes = init_all_notes() + init_all_notes()
     new_notes = []
     for x in range(len(notes)):
-        if(x >= pos_tone and x < pos_tone + 12):
+        if(x >= take_position(tone, init_all_notes()) and x < take_position(tone, init_all_notes()) + 12):
             new_notes.append(notes[x])
 
     return new_notes
-
-
-def config_scale(note_list, scale, tone):
-    scales_dict = read_formula(scale)
-    scale_list = []
-    ref = 0
-
-    for e in range(len(scales_dict)):
-
-        try:
-            scale_list.append(note_list[ref])
-
-        except IndexError:
-            return 'Error: ', tone, ' no existe.'
-
-        ref = ref + scales_dict[e]
-
-    out_scale = standar_proccess(scale_list, tone, scale)
-
-    return out_scale
 
 
 def get_the_pos_for(alt, tone, notes):
@@ -222,7 +196,7 @@ def get_some_notes_changed(scale, scale_with_points, tone, scale_name):
         if n > 0:
             list_of_required_notes.append(int(new_sure_list[n].split('-')[1]) - int(new_sure_list[n].split('-')[0]) - 1)
 
-    list_with_changes = get_changes(get_the_count_for_each_color(steps), list_of_required_notes, scale, scale_with_points, tone, scale_name)
+    list_with_changes = get_scale_fixed(get_the_count_for_each_color(steps), list_of_required_notes, scale, scale_with_points, tone, scale_name)
 
     return list_with_changes
 
@@ -290,7 +264,7 @@ def get_short_list_of_notes(sure, next_sure, scale):
     return short_list
 
 
-def get_changes(color_of_not_sure_notes, req, scale, swp, tone, scale_name):
+def get_scale_fixed(color_of_not_sure_notes, req, scale, swp, tone, scale_name):
     scales_wp = swp * 2
     scl = scale * 2
     sures = get_index_of_notes_without_sharps_or_bemols(scales_wp)
@@ -397,7 +371,7 @@ def get_the_steps_for(first_note, last_note, notes):
 
 
 def gen_double_note(_note):
-    notes = ['C', 'C#.Db', 'D', 'D#.Eb', 'E', 'F', 'F#.Gb', 'G', 'G#.Ab', 'A', 'A#.Bb', 'B']
+    notes = init_all_notes()
     for note in notes:
         if _note in note:
             return note
@@ -458,29 +432,6 @@ def standar_proccess(scale_list, tone, scale):
     return out_scale_reconfigured
 
 
-def debug_scale(scale):
-    notes = ['C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#', 'Ab', 'A', 'A#', 'Bb', 'B']
-    result = {}
-
-    for note in notes:
-        result[scale + ' tone ' + note + ':'] = scales(scale, note)
-
-    return display_debug(result)
-
-
-def display_debug(result):
-    res = ''
-    for key, value in result.items():
-        res = res + key
-        for x in range(len(value)):
-            if 'b' in value[x] or '' in value[x]:
-                res = res + ' ' + value[x] + ' '
-            else:
-                res = res + '  ' + value[x] + ' '
-        res = res + '\n'
-    return res
-
-
 def get_scale_name_list():
     json_content = parse_scales_json_to_python()
 
@@ -519,221 +470,6 @@ def get_tone_name_list_of_grade(grade):
         result.append({note: scales(grade, note)})
 
     return result
-
-
-def get_fretboard_note_positions(note):
-    positions = {
-        'C': get_fretboard_c_positions(),
-        'C#': get_fretboard_c_sharp_positions(),
-        'Db': get_fretboard_d_bemol_positions(),
-        'D': get_fretboard_d_positions(),
-        'D#': get_fretboard_d_sharp_positions(),
-        'Eb': get_fretboard_e_bemol_positions(),
-        'E': get_fretboard_e_positions(),
-        'F': get_fretboard_f_positions(),
-        'F#': get_fretboard_f_sharp_positions(),
-        'Gb': get_fretboard_g_bemol_positions(),
-        'G': get_fretboard_g_positions(),
-        'G#': get_fretboard_g_sharp_positions(),
-        'Ab': get_fretboard_a_bemol_positions(),
-        'A': get_fretboard_a_positions(),
-        'A#': get_fretboard_a_sharp_positions(),
-        'Bb': get_fretboard_b_bemol_positions(),
-        'B': get_fretboard_b_positions(),
-    }
-
-    if note in positions.keys():
-        return positions.get(note)
-
-    else:
-        return [{'cord': 'None', 'fret': 'None'}]
-
-
-def get_fretboard_c_positions():
-    return [
-        {'cord': 1, 'fret': 8},
-        {'cord': 6, 'fret': 8},
-        {'cord': 2, 'fret': 1},
-        {'cord': 3, 'fret': 5},
-        {'cord': 4, 'fret': 10},
-        {'cord': 5, 'fret': 3},
-    ]
-
-
-def get_fretboard_c_sharp_positions():
-    return [
-        {'cord': 1, 'fret': 9},
-        {'cord': 6, 'fret': 9},
-        {'cord': 2, 'fret': 2},
-        {'cord': 3, 'fret': 6},
-        {'cord': 4, 'fret': 11},
-        {'cord': 5, 'fret': 4},
-    ]
-
-
-def get_fretboard_d_bemol_positions():
-    return [
-        {'cord': 1, 'fret': 9},
-        {'cord': 6, 'fret': 9},
-        {'cord': 2, 'fret': 2},
-        {'cord': 3, 'fret': 6},
-        {'cord': 4, 'fret': 11},
-        {'cord': 5, 'fret': 4},
-    ]
-
-
-def get_fretboard_d_positions():
-    return [
-        {'cord': 1, 'fret': 10},
-        {'cord': 6, 'fret': 10},
-        {'cord': 2, 'fret': 3},
-        {'cord': 3, 'fret': 7},
-        {'cord': 4, 'fret': 0},
-        {'cord': 5, 'fret': 5},
-    ]
-
-
-def get_fretboard_d_sharp_positions():
-    return [
-        {'cord': 1, 'fret': 11},
-        {'cord': 6, 'fret': 11},
-        {'cord': 2, 'fret': 4},
-        {'cord': 3, 'fret': 8},
-        {'cord': 4, 'fret': 1},
-        {'cord': 5, 'fret': 6},
-    ]
-
-
-def get_fretboard_e_bemol_positions():
-    return [
-        {'cord': 1, 'fret': 11},
-        {'cord': 6, 'fret': 11},
-        {'cord': 2, 'fret': 4},
-        {'cord': 3, 'fret': 8},
-        {'cord': 4, 'fret': 1},
-        {'cord': 5, 'fret': 6},
-    ]
-
-
-def get_fretboard_e_positions():
-    return [
-        {'cord': 1, 'fret': 0},
-        {'cord': 6, 'fret': 0},
-        {'cord': 2, 'fret': 5},
-        {'cord': 3, 'fret': 9},
-        {'cord': 4, 'fret': 2},
-        {'cord': 5, 'fret': 7},
-    ]
-
-
-def get_fretboard_f_positions():
-    return [
-        {'cord': 1, 'fret': 1},
-        {'cord': 6, 'fret': 1},
-        {'cord': 2, 'fret': 6},
-        {'cord': 3, 'fret': 10},
-        {'cord': 4, 'fret': 3},
-        {'cord': 5, 'fret': 8},
-    ]
-
-
-def get_fretboard_f_sharp_positions():
-    return [
-        {'cord': 1, 'fret': 2},
-        {'cord': 6, 'fret': 2},
-        {'cord': 2, 'fret': 7},
-        {'cord': 3, 'fret': 11},
-        {'cord': 4, 'fret': 4},
-        {'cord': 5, 'fret': 9},
-    ]
-
-
-def get_fretboard_g_bemol_positions():
-    return [
-        {'cord': 1, 'fret': 2},
-        {'cord': 6, 'fret': 2},
-        {'cord': 2, 'fret': 7},
-        {'cord': 3, 'fret': 11},
-        {'cord': 4, 'fret': 4},
-        {'cord': 5, 'fret': 9},
-    ]
-
-
-def get_fretboard_g_positions():
-    return [
-        {'cord': 1, 'fret': 3},
-        {'cord': 6, 'fret': 3},
-        {'cord': 2, 'fret': 8},
-        {'cord': 3, 'fret': 0},
-        {'cord': 4, 'fret': 5},
-        {'cord': 5, 'fret': 10},
-    ]
-
-
-def get_fretboard_g_sharp_positions():
-    return [
-        {'cord': 1, 'fret': 4},
-        {'cord': 6, 'fret': 4},
-        {'cord': 2, 'fret': 9},
-        {'cord': 3, 'fret': 1},
-        {'cord': 4, 'fret': 6},
-        {'cord': 5, 'fret': 11},
-    ]
-
-
-def get_fretboard_a_bemol_positions():
-    return [
-        {'cord': 1, 'fret': 4},
-        {'cord': 6, 'fret': 4},
-        {'cord': 2, 'fret': 9},
-        {'cord': 3, 'fret': 1},
-        {'cord': 4, 'fret': 6},
-        {'cord': 5, 'fret': 11},
-    ]
-
-
-def get_fretboard_a_positions():
-    return [
-        {'cord': 1, 'fret': 5},
-        {'cord': 6, 'fret': 5},
-        {'cord': 2, 'fret': 10},
-        {'cord': 3, 'fret': 2},
-        {'cord': 4, 'fret': 7},
-        {'cord': 5, 'fret': 0},
-    ]
-
-
-def get_fretboard_a_sharp_positions():
-    return [
-        {'cord': 1, 'fret': 6},
-        {'cord': 6, 'fret': 6},
-        {'cord': 2, 'fret': 11},
-        {'cord': 3, 'fret': 3},
-        {'cord': 4, 'fret': 8},
-        {'cord': 5, 'fret': 1},
-    ]
-
-
-def get_fretboard_b_bemol_positions():
-    return [
-        {'cord': 1, 'fret': 6},
-        {'cord': 6, 'fret': 6},
-        {'cord': 2, 'fret': 11},
-        {'cord': 3, 'fret': 3},
-        {'cord': 4, 'fret': 8},
-        {'cord': 5, 'fret': 1},
-    ]
-
-
-def get_fretboard_b_positions():
-    return [
-        {'cord': 1, 'fret': 7},
-        {'cord': 6, 'fret': 7},
-        {'cord': 2, 'fret': 0},
-        {'cord': 3, 'fret': 4},
-        {'cord': 4, 'fret': 9},
-        {'cord': 5, 'fret': 2},
-    ]
 
 
 def get_identic_nomenclature(element):

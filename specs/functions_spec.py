@@ -4,6 +4,7 @@
 from mamba import *
 from expects import *
 from pychords.functions import *
+from pychords.notePosition import *
 
 
 with description("App pyChords"):

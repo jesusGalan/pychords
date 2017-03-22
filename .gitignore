@@ -1,8 +1,9 @@
 pychords.egg-info/
-venv/
+.venv/
 .floo
 .flooignore
 *.pyc
 FLOOBITS_README.md
 static/less/
 *.json~
+
