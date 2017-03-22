@@ -543,6 +543,17 @@ def get_identic_nomenclature(element):
         return None
 
 
+def show_intervals_for_scale(scale_name):
+    scales_dict = json.loads(read_scales_from_json(POSITIONS_JSON_PATH))
+    _list = []
+
+    for key, value in scales_dict.items():
+        for x in value.items():
+            if x[0] == scale_name:
+                _list.append(x[1])
+
+    return _list
+
 def show_scale_for_positions(position_list):
     scales_dict = json.loads(read_scales_from_json(POSITIONS_JSON_PATH))
     _list = []
