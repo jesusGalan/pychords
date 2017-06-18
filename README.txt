@@ -92,3 +92,5 @@ Sounds synth provided with pysynth:
     >> pip install PySynth-1.1.tar.gz
 
     NOTE: This file is the main folder
+
+Translations as soon as possible.
