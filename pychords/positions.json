@@ -26,7 +26,7 @@
                       "escala_menor_romana":        ["1", "2", "b3", "#4", "5", "6", "b7"],
                       "escala_frigia_mayor":        ["1", "b2", "3", "4", "5", "b6", "b7"],
                       "escala_lidia_#2":            ["1", "#2", "3", "#4", "5", "6", "7"],
-                      "escala_superlocria_bb7":     ["1", "2", "b3", "b4", "b5", "b6", "bb7"]},
+                      "escala_disminuida":          ["1", "2", "b3", "b4", "b5", "b6", "bb7"]},
 
     "escala_mixta_o_hindu":{
                       "escala_armonica_mayor":          ["1", "2", "3", "4", "5", "b6", "7"],
@@ -43,14 +43,14 @@
                       "escala_turca_tercer_grado":   ["1", "2", "3", "#4", "#5", "6", "b7"],
                       "escala_turca_cuarto_grado":   ["1", "2", "3", "#4", "5", "b6", "b7"],
                       "escala_turca_quinto_grado":   ["1", "2", "3", "4", "b5", "b6", "b7"],
-                      "escala_turca_sexto_grado":    ["1", "2", "b3", "3", "b5", "b6", "b7"],
+                      "escala_turca_sexto_grado":    ["1", "2", "#2", "3", "b5", "b6", "b7"],
                       "escala_turca_septimo_grado":  ["1", "b2", "2", "3", "b5", "6", "b7"]},
 
     "escala_hungara_mayor":{
                       "escala_hungara_mayor_primer_grado":        ["1", "#2", "3", "#4", "5", "6", "b7"],
-                      "escala_hungara_mayor_segundo_grado":       ["1", "b2", "b3", "3", "#4", "5", "bb7"],
+                      "escala_hungara_mayor_segundo_grado":       ["1", "b2", "#2", "3", "#4", "5", "bb7"],
                       "escala_hungara_mayor_tercer_grado":        ["1", "2", "b3", "4", "b5", "b6", "7"],
-                      "escala_hungara_mayor_cuarto_grado":        ["1", "b2", "b3", "3", "b5", "6", "b7"],
+                      "escala_hungara_mayor_cuarto_grado":        ["1", "b2", "#2", "3", "b5", "6", "b7"],
                       "escala_hungara_mayor_quinto_grado":        ["1", "2", "b3", "4", "#5", "6", "7"],
                       "escala_hungara_mayor_sexto_grado":         ["1", "b2", "b3", "#4", "5", "6", "b7"],
                       "escala_hungara_mayor_septimo_grado":       ["1", "2", "4", "b5", "b6", "6", "7"]},
@@ -71,7 +71,7 @@
                       "escala_gipsy":                          ["1", "2", "b3", "#4", "5", "b6", "b7"],
                       "escala_locria_mayor":                   ["1", "b2", "3", "4", "b5", "b6", "b7"],
                       "escala_jonica_#2":                      ["1", "#2", "3", "4", "5", "6", "7"],
-                      "escala_alterada_bb3_bb7":               ["1", "b2", "bb3", "3", "b5", "b6", "bb7"]},
+                      "escala_alterada_bb3_bb7":               ["1", "b2", "2", "3", "b5", "b6", "bb7"]},
 
     "escala_napolitana_mayor":{
                       "escala_persa":                   ["1", "b2", "3", "4", "5", "b6", "7"],

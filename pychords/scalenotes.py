@@ -33,4 +33,5 @@ def config_scale(note_list, scale, tone):
 
 
 if __name__ == '__main__':
-    print get_notes_of(sys.argv[1], sys.argv[2])
+    for i in enumerate(get_notes_of(sys.argv[1], sys.argv[2])):
+        print i[1]

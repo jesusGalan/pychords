@@ -1,26 +1,52 @@
 Welcome to pyChords!
 
-USAGE EXAMPLE:
+
+
+USAGE EXAMPLES:
 
 >python pychords/functions.py b2 3 '#4' 7
 
-	escala heptatonica de blues quinto grado
+	escala_heptatonica_de_blues_quinto_grado
+    escala_locria_mayor_sus_4_add_7
+    escala_hexatonica_de_blues_cuarto_grado
 
-	escala englimatic primer grado
 
-	escala alterada
 
-	escala hexatonica de blues cuarto grado
 
->python pychords/functions.py 2 3 b5 6 '#6'
+- You can draw notes on fret with the module showfret as below:
 
-	escala turca septimo grado
+>python pychords/showfret.py G B D
 
-	escala turca tercer grado
+    0                    3             5             7             9
+------------------------------------------------------------------------------------
+    ||      |      |  G   |      |      |      |  B   |      |      |  D   |      |
+ B  ||      |      |  D   |      |      |      |      |  G   |      |      |      |
+ G  ||      |      |      |  B   |      |      |  D   |      |      |      |      |
+ D  ||      |      |      |      |  G   |      |      |      |  B   |      |      |
+    ||      |  B   |      |      |  D   |      |      |      |      |  G   |      |
+    ||      |      |  G   |      |      |      |  B   |      |      |  D   |      |
+------------------------------------------------------------------------------------
 
-	escala lidia b7
 
-You can create wav files of the scale via pychords/pysong.py SCALE_NAME NOTE
+
+
+- So you could use the module called scalenotes for draw scales on fret:
+
+>python pychords/showfret.py $(python pychords/scalenotes.py escala_mayor_natural C)
+
+ 0                    3             5             7             9
+------------------------------------------------------------------------------------
+ E  ||  F   |      |  G   |      |  A   |      |  B   |  C   |      |  D   |      |  
+ B  ||  C   |      |  D   |      |  E   |  F   |      |  G   |      |  A   |      |  
+ G  ||      |  A   |      |  B   |  C   |      |  D   |      |  E   |  F   |      |  
+ D  ||      |  E   |  F   |      |  G   |      |  A   |      |  B   |  C   |      |  
+ A  ||      |  B   |  C   |      |  D   |      |  E   |  F   |      |  G   |      |  
+ E  ||  F   |      |  G   |      |  A   |      |  B   |  C   |      |  D   |      |  
+------------------------------------------------------------------------------------
+
+
+
+In addition you can create wav files of the scale via pychords/pysong.py SCALE_NAME NOTE (beta feature)
 
 NOTE: You need to do pip install pyaudio while virtual enviroment(recommended) is running
 
@@ -42,15 +68,6 @@ Here an example:
 
 Copyright (C) 2016  jgalanc
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
 
 for install the requirements you can do:
 
