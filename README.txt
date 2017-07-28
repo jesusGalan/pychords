@@ -4,18 +4,16 @@ Welcome to pyChords!
 
 USAGE EXAMPLES:
 
->python pychords/functions.py b2 3 '#4' 7
+>> python pychords/intervals.py b2 3 '#4' 7
 
 	escala_heptatonica_de_blues_quinto_grado
     escala_locria_mayor_sus_4_add_7
     escala_hexatonica_de_blues_cuarto_grado
 
 
-
-
 - You can draw notes on fret with the module showfret as below:
 
->python pychords/showfret.py G B D
+>> python pychords/visualize.py G B D
 
     0                    3             5             7             9
 ------------------------------------------------------------------------------------
@@ -28,11 +26,9 @@ USAGE EXAMPLES:
 ------------------------------------------------------------------------------------
 
 
-
-
 - So you could use the module called scalenotes for draw scales on fret:
 
->python pychords/showfret.py $(python pychords/scalenotes.py escala_mayor_natural C)
+>> python pychords/visualize.py $(python pychords/scales.py escala_mayor_natural C)
 
  0                    3             5             7             9
 ------------------------------------------------------------------------------------
@@ -45,31 +41,45 @@ USAGE EXAMPLES:
 ------------------------------------------------------------------------------------
 
 
+In addition you can do composition map based on modal interchange of a tonal center as below:
 
-In addition you can create wav files of the scale via pychords/pysong.py SCALE_NAME NOTE (beta feature)
+>> python pychords/composition.py GROUP_OF_SCALES TONE NUMBER_OF_CHORD_TENSES
 
-NOTE: You need to do pip install pyaudio while virtual enviroment(recommended) is running
+>> python pychords/composition.py escala_natural C 4
 
-Here an example:
+ --------------------------------------------------Vertical-----------------------------------------------------
 
->python pychords/pysong.py escala_mayor_natural C
+|    jonicos    |    doricos    |    frigios    |    lidios     |  mixolidios   |    eolicos    |    locrios    |
+ =============== =============== =============== =============== =============== =============== ===============
+|    Cmaj79     |     D-79      |     E-7b9     |    Fmaj79     |      G79      |     A-79      |    B-7b5b9    |
+|    Bbmaj79    |     C-79      |     D-7b9     |    Ebmaj79    |      F79      |     G-79      |    A-7b5b9    |
+|    Abmaj79    |     Bb-79     |     C-7b9     |    Dbmaj79    |     Eb79      |     F-79      |    G-7b5b9    |
+|    Gmaj79     |     A-79      |     B-7b9     |    Cmaj79     |      D79      |     E-79      |   F#-7b5b9    |
+|    Fmaj79     |     G-79      |     A-7b9     |    Bbmaj79    |      C79      |     D-79      |    E-7b5b9    |
+|    Ebmaj79    |     F-79      |     G-7b9     |    Abmaj79    |     Bb79      |     C-79      |    D-7b5b9    |
+|    Dbmaj79    |     Eb-79     |     F-7b9     |    Gbmaj79    |     Ab79      |     Bb-79     |    C-7b5b9    |
 
-	Writing to file test.wav
+ --------------------------------------------------Horizontal---------------------------------------------------
 
-	[1/8]
+|    Cmaj79     |     D-79      |     E-7b9     |    Fmaj79     |      G79      |     A-79      |    B-7b5b9    |
+|     C-79      |     D-7b9     |    Ebmaj79    |      F79      |     G-79      |    A-7b5b9    |    Bbmaj79    |
+|     C-7b9     |    Dbmaj79    |     Eb79      |     F-79      |    G-7b5b9    |    Abmaj79    |     Bb-79     |
+|    Cmaj79     |      D79      |     E-79      |   F#-7b5b9    |    Gmaj79     |     A-79      |     B-7b9     |
+|      C79      |     D-79      |    E-7b5b9    |    Fmaj79     |     G-79      |     A-7b9     |    Bbmaj79    |
+|     C-79      |    D-7b5b9    |    Ebmaj79    |     F-79      |     G-7b9     |    Abmaj79    |     Bb79      |
+|    C-7b5b9    |    Dbmaj79    |     Eb-79     |     F-7b9     |    Gbmaj79    |     Ab79      |     Bb-79     |
 
-	[5/8]
-
-	want to keep this wav file? y/n: y
-
-
-	The file is already in the current directory. No changes applied.
-
-
-Copyright (C) 2016  jgalanc
+ --------------------------------------------------------------------------------------------------------------- 
 
 
-for install the requirements you can do:
+You can search the chord of a specific scale:
+
+>> python pychords/chords.py escala_mayor_natural C 4
+
+    Cmaj79
+
+
+Pretty easy to install requirements:
 
     >> python setup.py develop
 
@@ -82,15 +92,5 @@ tested with expects and mamba:
 	- Mamba: pip install mamba
 
     >> mamba
-
-Stream scales on fly with pyaudio:
-
-    >> pip install pyaudio
-
-Sounds synth provided with pysynth:
-
-    >> pip install PySynth-1.1.tar.gz
-
-    NOTE: This file is the main folder
 
 Translations as soon as possible.

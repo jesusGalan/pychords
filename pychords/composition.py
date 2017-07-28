@@ -142,8 +142,11 @@ def get_data_to_visualize(filled_object, mark):
     note_wrapper = ''
 
     if 'vertical' in mark:
+        note_wrapper += "\n --------------------------------------------------Vertical-----------------------------------------------------\n\n"
         note_wrapper += '|    jonicos    |    doricos    |    frigios    |    lidios     |  mixolidios   |    eolicos    |    locrios    |\n'
         note_wrapper += ' =============== =============== =============== =============== =============== =============== ==============='
+    else:
+        note_wrapper += "\n --------------------------------------------------Horizontal---------------------------------------------------\n"
 
     for chords in enumerate(filled_object['scale_chords']):
         note_wrapper += '\n'
@@ -178,3 +181,4 @@ def visualize_modal_horizontal_sort():
 if __name__ == __name__:
     print visualize_modal_vertical_sort()
     print visualize_modal_horizontal_sort()
+    print "\n --------------------------------------------------------------------------------------------------------------- \n"
