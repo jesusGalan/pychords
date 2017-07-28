@@ -11,7 +11,7 @@ USAGE EXAMPLES:
     escala_hexatonica_de_blues_cuarto_grado
 
 
-- You can draw notes on fret with the module showfret as below:
+- You can draw notes on fret with the module visualize as below:
 
 >> python pychords/visualize.py G B D
 
@@ -26,7 +26,7 @@ USAGE EXAMPLES:
 ------------------------------------------------------------------------------------
 
 
-- So you could use the module called scalenotes for draw scales on fret:
+- So you could use the module called scales for draw scales on fret:
 
 >> python pychords/visualize.py $(python pychords/scales.py escala_mayor_natural C)
 
