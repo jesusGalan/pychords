@@ -7,7 +7,7 @@ import wave
 import pysynth
 import pyaudio
 
-import functions as pychord_module
+from pychords.functions import scales
 
 octave = 4
 
@@ -67,6 +67,23 @@ def search_c_position(_list):
                 print 'final de lista'
 
     return res
+
+def get_the_notes_between(first, last):
+    notes = take_all_notes_from(first)
+    new_notes = []
+    last_pos = notes.index(gen_double_note(last))
+    for note in range(len(notes)):
+        if note < last_pos:
+            new_notes.append(notes[note].split('.')[0])
+        if note == last_pos:
+            if '#' in last:
+                new_notes.append(notes[note].split('.')[0])
+            elif 'b' in last:
+                new_notes.append(notes[note].split('.')[1])
+            else:
+                new_notes.append(notes[note].split('.')[0])
+
+    return new_notes
 
 if __name__ == '__main__':
 

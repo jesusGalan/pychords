@@ -1,11 +1,12 @@
-from functions import *
+import sys
+from pychords.scales import get_notes_of
 
 def debug_scale(scale):
     notes = ['C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#', 'Ab', 'A', 'A#', 'Bb', 'B']
     result = {}
 
     for note in notes:
-        result[scale + ' tone ' + note + ':'] = scales(scale, note)
+        result[scale + ' tone ' + note + ':'] = get_notes_of(scale, note)
 
     return display_debug(result)
 

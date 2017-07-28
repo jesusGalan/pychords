@@ -1,4 +1,4 @@
-'''showfret is able to write notes on ascii fretboard and show it on bash sessions'''
+'''Visualize is able to write notes on ascii fretboard and show it on bash sessions'''
 
 import sys
 from pychords.fretcodemap import cat_codemaps, get_codemap_of, init_fret_codemap, init_notemap
@@ -43,7 +43,7 @@ def return_row(codemap, string_number):
             structure.append(' ')
 
     result = ''
-    
+
     for item in enumerate(check_width(structure)):
         result = result + check_width(structure)[item[0]]
 
@@ -72,6 +72,7 @@ def check_width(arr):
     return structure
 
 def inject_arguments(num):
+    '''Try to get argument '''
     try:
         return sys.argv[num]
 

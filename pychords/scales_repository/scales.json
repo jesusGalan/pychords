@@ -9,24 +9,24 @@
                     "escala_locria":              [1, 2, 2, 1, 2, 2, 2]},
 
 
-    "escala_melódica":{
+    "escala_melodica":{
                       "escala_menor_melodica":    [2, 1, 2, 2, 2, 2, 1],
                       "escala_java":              [1, 2, 2, 2, 2, 1, 2],
                       "escala_lidia_#5":          [2, 2, 2, 2, 1, 2, 1],
                       "escala_lidia_b7":          [2, 2, 2, 1, 2, 1, 2],
-                      "escala_hindustan":         [2, 2, 1, 2, 1, 2, 2],
+                      "escala_mixolidia_b6":         [2, 2, 1, 2, 1, 2, 2],
                       "escala_locria_natural_2":  [2, 1, 2, 1, 2, 2, 2],
                       "escala_alterada":          [1, 2, 1, 2, 2, 2, 2]},
 
 
-    "escala_armónica_menor":{
+    "escala_armonica_menor":{
                       "escala_menor_armonica":      [2, 1, 2, 2, 1, 3, 1],
                       "escala_locria_natural_6":    [1, 2, 2, 1, 3, 1, 2],
                       "escala_jonica_#5":           [2, 2, 1, 3, 1, 2, 1],
                       "escala_menor_romana":        [2, 1, 3, 1, 2, 1, 2],
                       "escala_frigia_mayor":        [1, 3, 1, 2, 1, 2, 2],
                       "escala_lidia_#2":            [3, 1, 2, 1, 2, 2, 1],
-                      "escala_superlocria_bb7":     [1, 2, 1, 2, 2, 1, 3]},
+                      "escala_disminuida":     [1, 2, 1, 2, 2, 1, 3]},
 
     "escala_mixta_o_hindú":{
                       "escala_armonica_mayor":          [2, 2, 1, 2, 1, 3, 1],

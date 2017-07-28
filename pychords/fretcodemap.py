@@ -132,3 +132,4 @@ def cat_codemaps(codemap1, codemap2):
 
 if __name__ == '__main__':
     print get_codemap_of(['A-8', 'B-1', 'C-5', 'D-10', 'E-3', 'F-8'])
+    

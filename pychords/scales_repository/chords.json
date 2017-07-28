@@ -1,0 +1,113 @@
+{
+    "escala_natural":{
+                    "escala_mayor_natural":       ["", "maj7", "", "9", "11", "13"],
+                    "escala_dorica":              ["-", "7", "", "9", "11", "13"],
+                    "escala_frigia":              ["-", "7", "", "b9", "11", "b13"],
+                    "escala_lidia":               ["", "maj7", "", "9","#11","13"],
+                    "escala_mixolidia":           ["", "7", "", "9", "11", "13"],
+                    "escala_menor_natural":       ["-", "7", "", "9", "11", "b13"],
+                    "escala_locria":              ["-", "7", "b5", "b9", "11", "b13"]},
+
+
+    "escala_melodica":{
+                      "escala_menor_melodica":    ["-", "maj7", "", "9", "11", "13"],
+                      "escala_java":              ["-", "7", "", "b9", "11", "13"],
+                      "escala_lidia_#5":          ["", "maj7", "+", "9", "#11", "13"],
+                      "escala_lidia_b7":          ["", "7",  "", "9", "#11", "13"],
+                      "escala_mixolidia_b6":         ["", "7",  "", "9", "11", "b13"],
+                      "escala_locria_natural_2":  ["-", "7", "b5", "9", "11", "b13"],
+                      "escala_alterada":          [["", "7",  "alt", "b9", "#11", "b13"],
+                                                   ["", "7",  "alt", "#9", "#11", "b13"]]},
+
+
+    "escala_armonica_menor":{
+                      "escala_menor_armonica":      ["-", "maj7", "", "9", "11", "b13"],
+                      "escala_locria_natural_6":    ["-", "7", "b5", "b9", "11", "13"],
+                      "escala_jonica_#5":           ["", "maj7", "+", "9", "11", "13"],
+                      "escala_menor_romana":        ["-", "7", "", "9", "#11", "13"],
+                      "escala_frigia_mayor":        ["", "7", "", "b9", "11", "b13"],
+                      "escala_lidia_#2":            ["", "maj7", "", "#9", "#11", "13"],
+                      "escala_disminuida":          ["d", "i", "m", "bb7", "b9", "10", "b13"]},
+
+    "escala_mixta_o_hindu":{
+                      "escala_armonica_mayor":          ["", "maj7", "", "9", "11", "b13"],
+                      "escala_locria_natural_2_6":      ["-", "7", "b5", "9", "11", "13"],
+                      "escala_frigia_mayor_#9":         ["", "7", "", "b9", "#9", "b13"],
+                      "escala_lidia_menor":             ["-", "maj7", "", "9", "#11", "13"],
+                      "escala_mixolidia_b2":            ["", "7", "", "b9", "11", "13"],
+                      "escala_lidia_#2_#5":             ["", "maj7", "+", "#9", "#11", "13"],
+                      "escala_locria_bb7":              ["dim", "", "7", "b9", "11", "b13"]},
+
+    "escala_turca":{
+                      "escala_turca_primer_grado":   ["-", "b2", "", "b9", "11", "13"],
+                      "escala_turca_segundo_grado":  ["", "2", "+", "9", "#11", "#13"],
+                      "escala_turca_tercer_grado":   ["", "2", "+", "9", "#11", "13"],
+                      "escala_turca_cuarto_grado":   ["", "2", "", "9", "#11", "b13"],
+                      "escala_turca_quinto_grado":   ["", "2", "b5", "9", "11", "b13"],
+                      "escala_turca_sexto_grado":    ["-", "2", "b5", "9", "10", "b13"],
+                      "escala_turca_septimo_grado":  ["", "b2", "b5", "b9", "10", "13"]},
+
+    "escala_hungara_mayor":{
+                      "escala_hungara_mayor_primer_grado":        ["1", "#2", "3", "#4", "5", "6", "b7"],
+                      "escala_hungara_mayor_segundo_grado":       ["1", "b2", "#2", "3", "#4", "5", "bb7"],
+                      "escala_hungara_mayor_tercer_grado":        ["1", "2", "b3", "4", "b5", "b6", "7"],
+                      "escala_hungara_mayor_cuarto_grado":        ["1", "b2", "#2", "3", "b5", "6", "b7"],
+                      "escala_hungara_mayor_quinto_grado":        ["1", "2", "b3", "4", "+", "6", "7"],
+                      "escala_hungara_mayor_sexto_grado":         ["1", "b2", "b3", "#4", "5", "6", "b7"],
+                      "escala_hungara_mayor_septimo_grado":       ["1", "2", "4", "b5", "b6", "6", "7"]},
+
+    "escala_englimatic":{
+                      "escala_locria_mayor_sus_4_add_7":          ["1", "b2", "3", "b5", "b6", "b7", "7"],
+                      "escala_mixolidia_menor_sus_2_add_7":       ["1", "#2", "4", "5", "6", "b7", "7"],
+                      "escala_lidia_b6_bb7":                      ["1", "2", "3", "#4", "5", "b6", "bb7"],
+                      "escala_mixolidia_disminuida_bb6":          ["1", "2", "3", "4", "b5", "bb6", "b7"],
+                      "escala_eolica_b4_bb5":                     ["1", "2", "b3", "3", "4", "b6", "b7"],
+                      "escala_locria_sus_4_add_2":                ["1", "b2", "2", "b3", "b5", "b6", "b7"],
+                      "escala_jonica_sus_3_add_b2":               ["1", "b2", "2", "4", "5", "6", "7"]},
+
+    "escala_napolitana_menor":{
+                      "escala_frigia_natural_7":               ["-", "maj7", "", "b9", "11", "b13"],
+                      "escala_lidia_#6":                       ["", "maj7", "", "9", "#11", "#13"],
+                      "escala_jonica_aumentada_b7":            ["", "7", "", "9", "11", "13"],
+                      "escala_gipsy":                          ["-", "7", "", "9", "#11", "b13"],
+                      "escala_locria_mayor":                   ["", "7", "b5", "b9", "11", "b13"],
+                      "escala_jonica_#2":                      ["", "maj7", "", "#9", "11", "13"],
+                      "escala_alterada_bb3_bb7":               [["", "6", "b5", "b9", "9", "b13"]]},
+
+    "escala_napolitana_mayor":{
+                      "escala_persa":                   ["", "maj7", "", "b9", "11", "b13"],
+                      "escala_lidia_#2_#6":             ["", "maj7", "", "#9", "#11", "#13"],
+                      "escala_frigia_b4_bb7":           ["-", "6", "", "b9", "10", "b13"],
+                      "escala_doble_armonica_menor":    ["-", "maj7", "", "9", "#11", "b13"],
+                      "escala_oriental":                ["", "7", "b5", "b9", "11", "13"],
+                      "escala_jonica_aumentada_#2":     ["", "maj7", "+", "#9", "11", "13"],
+                      "escala_locria_bb3_bb7":          ["sus2", "6", "b5", "b9", "11", "b13"]},
+
+    "escala_de_hexatonica_blues":{
+                      "escala_hexatonica_de_blues_primer_grado":  ["1", "b3", "4", "b5", "bb6", "b7"],
+                      "escala_hexatonica_de_blues_segundo_grado": ["1", "2", "b3", "3", "5", "6"],
+                      "escala_hexatonica_de_blues_tercer_grado":  ["1", "b2", "2", "4", "5", "b7"],
+                      "escala_hexatonica_de_blues_cuarto_grado":  ["1", "b2", "3", "b5", "6", "7"],
+                      "escala_hexatonica_de_blues_quinto_grado":  ["1", "b3", "4", "b6", "b7", "7"],
+                      "escala_hexatonica_de_blues_sexto_grado":   ["1", "2", "4", "5", "b6", "bb7"]},
+
+
+    "escala_heptatonica_de_blues":{
+                      "escala_heptatonica_de_blues_primer_grado":  ["1", "b3", "3", "4", "b5", "bb6", "b7"],
+                      "escala_heptatonica_de_blues_segundo_grado": ["1", "b2","2", "b3", "3", "5", "6"],
+                      "escala_heptatonica_de_blues_tercer_grado":  ["1", "b2", "2", "b3", "#4", "b6", "7"],
+                      "escala_heptatonica_de_blues_cuarto_grado":  ["1", "b2", "2", "4", "5", "b7", "7"],
+                      "escala_heptatonica_de_blues_quinto_grado":  ["1", "b2", "3", "b5", "6", "b7", "7"],
+                      "escala_heptatonica_de_blues_sexto_grado":   ["1", "b3", "4", "b6", "6","b7", "7"],
+                      "escala_heptatonica_de_blues_septimo_grado": ["1", "2", "4", "#4","5", "b6", "bb7"]},
+
+    "escalas_simetricas":{
+                      "escala_tono_a_tono":             [["", "7", "b5", "9", "b11"],
+                                                         ["", "7", "#5", "9", "#11"]],
+
+                      "escala_semitono_a_tono":         [["dim", "7", "", "b9", "b11", "13"],
+                                                         ["", "7", "", "#9", "#11", "13"]],
+
+                      "escala_tono_a_semitono":         ["dim", "7", "", "9", "b11", "13"],
+
+                      "escala_cromatica":               ["You cand play any chord you want."]}}
