@@ -2,7 +2,7 @@
 
 
 from expects import *
-from pychords.scaleNotes import get_notes_of
+from pychords.scales import get_notes_of
 
 
 with description('Generating get_notes_of'):
@@ -51,16 +51,16 @@ with description('Generating get_notes_of'):
                 expect(get_notes_of(scale, note)).to(equal(
                     ['Bb', 'C', 'D', 'E', 'F', 'G', 'Ab']))
 
-            with it("escala_hindustan"):
+            with it("escala_mixolidia_b6"):
                 note = 'Bb'
-                scale = 'escala_hindustan'
+                scale = 'escala_mixolidia_b6'
 
                 expect(get_notes_of(scale, note)).to(equal(
                     ['Bb', 'C', 'D', 'Eb', 'F', 'Gb', 'Ab']))
 
-            with it("escala_hindustan"):
+            with it("escala_mixolidia_b6"):
                 note = 'A#'
-                scale = 'escala_hindustan'
+                scale = 'escala_mixolidia_b6'
 
                 expect(get_notes_of(scale, note)).to(equal(
                     ['Bb', 'C', 'D', 'Eb', 'F', 'Gb', 'Ab']))

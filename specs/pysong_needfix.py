@@ -34,3 +34,15 @@ with description("App pySongs"):
         with it('must return an hard position'):
 
             expect(search_c_position(['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'])).to(equal(5))
+        
+    with context('search notes between notes'):
+
+        with it('return from D# and F#'):
+
+            expect(get_the_notes_between('D#', 'F#')).to(equal(
+                ['D#', 'E', 'F', 'F#']))
+
+        with it('return from D and Gb'):
+
+            expect(get_the_notes_between('D', 'Gb')).to(equal(
+                ['D', 'D#', 'E', 'F', 'Gb']))

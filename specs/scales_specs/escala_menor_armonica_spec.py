@@ -2,7 +2,7 @@
 
 
 from expects import *
-from pychords.scaleNotes import get_notes_of
+from pychords.scales import get_notes_of
 
 
 with description('Generating get_notes_of'):
@@ -166,21 +166,21 @@ with description('Generating get_notes_of'):
 
             with it("escala_superlocria_bb7"):
                 note = 'Gb'
-                scale = 'escala_superlocria_bb7'
+                scale = 'escala_disminuida'
 
                 expect(get_notes_of(scale, note)).to(equal(
                     ['F#', 'G', 'A', 'Bb', 'C', 'D', 'Eb']))
 
             with it("escala_superlocrian_bb7"):
                 note = 'C'
-                scale = 'escala_superlocria_bb7'
+                scale = 'escala_disminuida'
 
                 expect(get_notes_of(scale, note)).to(equal(
                     ['C', 'Db', 'Eb', 'E', 'F#', 'G#', 'A']))
 
             with it("escala_superlocrian_bb7"):
                 note = 'C'
-                scale = 'escala_superlocria_bb7'
+                scale = 'escala_disminuida'
 
                 expect(get_notes_of(scale, note)).to(equal(
                     ['C', 'Db', 'Eb', 'E', 'F#', 'G#', 'A']))
