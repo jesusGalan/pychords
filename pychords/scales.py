@@ -9,6 +9,7 @@ from pychords.intervals import get_identic_nomenclature
 SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/scales.json')
 
 def get_notes_of(scale_name, tone):
+    '''Hola'''
     note_list = take_all_notes_from(tone)
     note_list = note_list + note_list
     scale_list = config_scale(note_list, scale_name, tone)
@@ -84,6 +85,6 @@ def get_grade_name_list_of_scale(scale):
 
 
 if __name__ == '__main__':
-    '''>python pychords/scalenotes.py escala_mayor_natural A'''
+    print "USAGE: >python pychords/scalenotes.py escala_mayor_natural A"
     for note in enumerate(get_notes_of(sys.argv[1], sys.argv[2])):
         print note[1]
