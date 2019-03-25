@@ -1,4 +1,4 @@
-from mamba import *
+'''from mamba import *
 from expects import *
 
 from pychords.intervals import get_scale_by_selected_intervals
@@ -22,4 +22,4 @@ with description("App pySongs"):
 
             expect(get_scale_by_selected_intervals(
                 ["b2", "b3", "4", "5", "6", "b7"])).to(equal(
-                    ['escala_java']))
+                    ['escala_java']))'''
