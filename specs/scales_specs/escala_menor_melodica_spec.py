@@ -2,7 +2,7 @@
 
 
 from expects import *
-from pychords.scales import get_notes_of
+from scales import get_notes_of
 
 
 with description('Generating get_notes_of'):

@@ -1,5 +1,5 @@
 import sys
-from pychords.scales import get_notes_of
+from scales import get_notes_of
 
 def debug_scale(scale):
     notes = ['C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#', 'Ab', 'A', 'A#', 'Bb', 'B']

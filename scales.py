@@ -3,8 +3,8 @@ import sys
 import json
 from collections import OrderedDict
 
-from pychords.functions import read_scales_from_json, take_all_notes_from, standar_proccess
-from pychords.intervals import get_identic_nomenclature
+from functions import read_scales_from_json, take_all_notes_from, standar_proccess
+from intervals import get_identic_nomenclature
 
 SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/scales.json')
 

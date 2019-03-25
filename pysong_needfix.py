@@ -7,7 +7,7 @@ import wave
 import pysynth
 import pyaudio
 
-from pychords.functions import scales
+from functions import scales
 
 octave = 4
 

@@ -3,7 +3,7 @@ import os
 import sys
 import json
 
-from pychords.functions import read_scales_from_json
+from functions import read_scales_from_json
 
 INTERVALS_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/intervals.json')
 

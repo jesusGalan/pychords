@@ -1,7 +1,7 @@
 import sys
 
-from pychords.scales import get_notes_of, get_scale_name_list, get_list_of_grades_by
-from pychords.chords import get_chord_name
+from scales import get_notes_of, get_scale_name_list, get_list_of_grades_by
+from chords import get_chord_name
 
 
 def get_scale_names_according_to(scale_name, mom_scale):

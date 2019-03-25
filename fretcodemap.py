@@ -1,5 +1,5 @@
 '''do functions for notemaps to be drawn'''
-from pychords.functions import take_all_notes_from
+from functions import take_all_notes_from
 
 def fresh_fret_data():
     '''initialized empty codemap'''
