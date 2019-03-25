@@ -31,7 +31,7 @@ def get_identic_nomenclature(element):
     except KeyError:
         if element == '7':
             return element
-        print 'no se que es ', element
+        print('no se que es ', element)
         exit()
 
 def get_scale_by_selected_intervals(position_list):
@@ -70,7 +70,7 @@ if __name__ == '__main__':
         if argument > 0:
             _list.append(sys.argv[argument])
 
-    print '\n'
+    print('\n')
     for x in get_scale_by_selected_intervals(_list):
-        print x
-    print '\n'
+        print(x)
+    print('\n')

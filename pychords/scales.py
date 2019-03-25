@@ -85,6 +85,6 @@ def get_grade_name_list_of_scale(scale):
 
 
 if __name__ == '__main__':
-    print "USAGE: >python pychords/scalenotes.py escala_mayor_natural A"
+    print("USAGE: >python pychords/scalenotes.py escala_mayor_natural A")
     for note in enumerate(get_notes_of(sys.argv[1], sys.argv[2])):
-        print note[1]
+        print(note[1])

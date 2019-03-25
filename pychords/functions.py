@@ -44,7 +44,7 @@ def take_position(tone, notes):
                 if '.' not in note and tone[0:1] in note:
                     _pos_tone = pos + 1
     else:
-        print 'Error in line 28 of functions'
+        print('Error in line 28 of functions')
 
     return _pos_tone - 1
 
