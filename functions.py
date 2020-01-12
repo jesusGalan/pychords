@@ -1,32 +1,33 @@
 # -*- coding: utf-8 -*-
 
-'''Module for produce notes according to selected scales and tones'''
+"""Module for produce notes according to selected scales and tones"""
 
 
-def read_scales_from_json(SCALES_JSON_PATH):
-    with open(SCALES_JSON_PATH, 'rb') as f:
+def read_scales_from_json(scales_json_path):
+    with open(scales_json_path, 'rb') as f:
         content = f.read()
 
     return content
 
+
 def init_all_notes():
-    '''Init all notes from C to B in array form'''
+    """Init all notes from C to B in array form"""
     return ['C', 'C#.Db', 'D', 'D#.Eb', 'E', 'F', 'F#.Gb', 'G', 'G#.Ab', 'A', 'A#.Bb', 'B']
 
 
 def take_all_notes_from(tone):
-    '''This method can sort all notes from a selected tone'''
+    """This method can sort all notes from a selected tone"""
     new_notes = []
     for pos, note in enumerate(init_all_notes() + init_all_notes()):
-        if(pos >= take_position(tone, init_all_notes()) and
-           pos < take_position(tone, init_all_notes()) + 12):
+        if take_position(tone, init_all_notes()) <= pos < take_position(tone, init_all_notes()) + 12:
             new_notes.append(note)
 
     return new_notes
 
 
 def take_position(tone, notes):
-    '''Get the position of a possible note'''
+    """Get the position of a possible note"""
+    _pos_tone = None
     if tone not in ['Fb', 'Cb', 'E#', 'B#']:
         alteration = tone[1:2]
 
@@ -43,16 +44,19 @@ def take_position(tone, notes):
             else:
                 if '.' not in note and tone[0:1] in note:
                     _pos_tone = pos + 1
+
     else:
         print('Error in line 28 of functions')
 
     return _pos_tone - 1
 
+
 def get_sure_notes(scale_list):
-    '''get index of notes with no alterations'''
+    """get index of notes with no alterations"""
     return [scale_list.index(i) for i in scale_list if '#' not in i and 'b' not in i]
 
-def setup_scale(scale, tone):
+
+def setup_scale(scale):
     out_list = scale + scale
     sures = get_sure_notes(out_list)
 
@@ -62,6 +66,7 @@ def setup_scale(scale, tone):
                 out_list[data[0]] = data[1].split('.')[0]
 
     return out_list
+
 
 def substract_scale(scale, name_of_scale):
     if name_of_scale in 'escala_cromatica':
@@ -97,7 +102,6 @@ def scan_duplicates(scale, scale_with_points):
                 result_scale[pos] = scale_with_points[pos].split('.')[0]
             elif scale_with_points[pos][0:1] in scale[pos - 1]:
                 result_scale[pos] = scale_with_points[pos].split('.')[1]
-
 
     return result_scale
 
@@ -153,6 +157,7 @@ def get_the_count_for_each_color(color_note_list):
 def next_sure_note(root_note, swp):
     count = 0
     save_root_position = 0
+    save = None
 
     for n in range(len(swp) - 1):
         if '.' not in swp[n] and root_note in swp[n]:
@@ -167,12 +172,12 @@ def next_sure_note(root_note, swp):
 
 
 def get_short_list_of_notes_reverse(scale, sure, next_sure):
-    result = listRightIndex(scale, next_sure) - scale.index(sure)
-    short_list = get_short_list(result, scale, sure, next_sure)
+    result = list_right_index(scale, next_sure) - scale.index(sure)
+    short_list = get_short_list(result, scale, sure)
     return short_list
 
 
-def get_short_list(result, scale, sure, next_sure):
+def get_short_list(result, scale, sure):
     short_list = []
     for x in range(result + 1):
         short_list.append(scale[scale.index(sure) + x])
@@ -182,12 +187,11 @@ def get_short_list(result, scale, sure, next_sure):
 
 def get_short_list_of_notes(sure, next_sure, scale):
     result = scale.index(next_sure) - scale.index(sure)
-    short_list = []
     if result < 0:
         short_list = get_short_list_of_notes_reverse(scale, sure, next_sure)
 
     else:
-        short_list = get_short_list(result, scale, sure, next_sure)
+        short_list = get_short_list(result, scale, sure)
         return short_list
 
     return short_list
@@ -196,6 +200,7 @@ def get_short_list_of_notes(sure, next_sure, scale):
 def get_scale_fixed(scale, swp, tone, scale_name):
     scales_wp = swp * 2
     scl = scale * 2
+    result = None
 
     for data in enumerate(scales_wp):
         if '.' not in data[1]:
@@ -222,6 +227,7 @@ def get_scale_fixed(scale, swp, tone, scale_name):
         result = substract_fixed_scale(scl, scale_name)
 
     return result
+
 
 def get_good_notes_into_array(arr, notes_collect, notes_onfly):
     if (notes_collect['second_note_first_char'] not in
@@ -288,11 +294,10 @@ def fill_with_note_color(result, notes, first_note):
     return list_of_color_notes
 
 
-
 def get_the_steps_for(first_note, last_note, notes):
     if notes.index(last_note) - notes.index(first_note) < 0:
         return fill_with_note_color(
-            listRightIndex(notes, last_note) - notes.index(first_note),
+            list_right_index(notes, last_note) - notes.index(first_note),
             notes,
             first_note)
     else:
@@ -309,7 +314,8 @@ def gen_double_note(_note):
         if _note in note:
             return note
 
-def listRightIndex(alist, value):
+
+def list_right_index(alist, value):
     return len(alist) - alist[-1::-1].index(value) - 1
 
 
@@ -317,7 +323,7 @@ def standar_proccess(scale_list, tone, scale):
     out_scale = substract_scale(
         scan_duplicates(
             scan_duplicates(
-                setup_scale(scale_list, tone), scale_list + scale_list),
+                setup_scale(scale_list), scale_list + scale_list),
             scale_list + scale_list),
         scale)
 
