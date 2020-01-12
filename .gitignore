@@ -6,4 +6,5 @@ pychords.egg-info/
 FLOOBITS_README.md
 static/less/
 *.json~
-
+.vscode/
+venv/

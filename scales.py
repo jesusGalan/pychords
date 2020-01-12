@@ -3,8 +3,8 @@ import sys
 import json
 from collections import OrderedDict
 
-from pychords.functions import read_scales_from_json, take_all_notes_from, standar_proccess
-from pychords.intervals import get_identic_nomenclature
+from functions import read_scales_from_json, take_all_notes_from, standar_proccess
+from intervals import get_identic_nomenclature
 
 SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/scales.json')
 
@@ -85,6 +85,6 @@ def get_grade_name_list_of_scale(scale):
 
 
 if __name__ == '__main__':
-    print "USAGE: >python pychords/scalenotes.py escala_mayor_natural A"
+    print("USAGE: >python pychords/scalenotes.py escala_mayor_natural A")
     for note in enumerate(get_notes_of(sys.argv[1], sys.argv[2])):
-        print note[1]
+        print(note[1])

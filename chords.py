@@ -6,7 +6,7 @@ import os
 import sys
 import json
 
-from pychords.functions import read_scales_from_json
+from functions import read_scales_from_json
 
 
 CHORDS_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/chords.json')
@@ -84,4 +84,4 @@ def get_chord_name(note, scale, type_of_chord):
         return note + chord_nomenclature
 
 if __name__ == '__main__':
-    print get_chord_name(sys.argv[2], sys.argv[1], int(sys.argv[3]))
+    print(get_chord_name(sys.argv[2], sys.argv[1], int(sys.argv[3])))

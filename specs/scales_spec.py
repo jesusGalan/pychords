@@ -3,7 +3,7 @@
 from mamba import *
 from expects import *
 
-from pychords.scales import *
+from scales import *
 
 
 with description('making chords'):

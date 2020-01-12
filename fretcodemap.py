@@ -1,5 +1,5 @@
 '''do functions for notemaps to be drawn'''
-from pychords.functions import take_all_notes_from
+from functions import take_all_notes_from
 
 def fresh_fret_data():
     '''initialized empty codemap'''
@@ -131,5 +131,5 @@ def cat_codemaps(codemap1, codemap2):
     return compo
 
 if __name__ == '__main__':
-    print get_codemap_of(['A-8', 'B-1', 'C-5', 'D-10', 'E-3', 'F-8'])
+    print(get_codemap_of(['A-8', 'B-1', 'C-5', 'D-10', 'E-3', 'F-8']))
     
