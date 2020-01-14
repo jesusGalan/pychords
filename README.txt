@@ -4,7 +4,7 @@ Welcome to pyChords!
 
 USAGE EXAMPLES:
 
->> python pychords/intervals.py b2 3 '#4' 7
+>> python intervals.py b2 3 '#4' 7
 
 	escala_heptatonica_de_blues_quinto_grado
     escala_locria_mayor_sus_4_add_7
@@ -13,7 +13,7 @@ USAGE EXAMPLES:
 
 - You can draw notes on fret with the module visualize as below:
 
->> python pychords/visualize.py G B D
+>> python visualize.py G B D
 
     0                    3             5             7             9
 ------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ USAGE EXAMPLES:
 
 - So you could use the module called scales for draw scales on fret:
 
->> python pychords/visualize.py $(python pychords/scales.py escala_mayor_natural C)
+>> python visualize.py $(python scales.py escala_mayor_natural C)
 
  0                    3             5             7             9
 ------------------------------------------------------------------------------------
@@ -43,9 +43,9 @@ USAGE EXAMPLES:
 
 In addition you can do composition map based on modal interchange of a tonal center as below:
 
->> python pychords/composition.py GROUP_OF_SCALES TONE NUMBER_OF_CHORD_TENSES
+>> python composition.py GROUP_OF_SCALES TONE NUMBER_OF_CHORD_TENSES
 
->> python pychords/composition.py escala_natural C 4
+>> python composition.py escala_natural C 4
 
  --------------------------------------------------Vertical-----------------------------------------------------
 
@@ -74,7 +74,7 @@ In addition you can do composition map based on modal interchange of a tonal cen
 
 You can search the chord of a specific scale:
 
->> python pychords/chords.py escala_mayor_natural C 4
+>> python chords.py escala_mayor_natural C 4
 
     Cmaj79
 
