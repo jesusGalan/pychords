@@ -1,3 +1,4 @@
+import math
 import sys
 
 from scales import get_notes_of, get_scale_name_list, get_list_of_grades_by
@@ -157,14 +158,15 @@ def get_data_to_visualize(filled_object, mark):
         for chord in enumerate(chords[1]):
             if str(((15 - len(chord[1])) / 2.0)).split('.')[1] == '5':
                 try:
-                    note_wrapper += '|' + ' ' * (
-                            (15 - len(chord[1])) / 2) + chord[1] + ' ' * ((16 - len(chord[1])) / 2)
+                    note_wrapper += '|' + ' ' * math.floor((15 - len(chord[1])) / 2)\
+                                    + chord[1]\
+                                    + ' ' * math.floor((16 - len(chord[1])) / 2)
                 except TypeError:
-                    note_wrapper += '|' + ' ' * (
-                            (15 - len(chord[1][0])) / 2) + chord[1][0] + ' ' * ((16 - len(chord[1][0])) / 2)
+                    note_wrapper += '|' + ' ' * math.ceil(
+                            (15 - len(chord[1][0])) / 2) + chord[1][0] + ' ' * math.ceil((16 - len(chord[1][0])) / 2)
             else:
-                note_wrapper += '|' + ' ' * (
-                        (15 - len(chord[1])) / 2) + chord[1] + ' ' * ((15 - len(chord[1])) / 2)
+                note_wrapper += '|' + ' ' * math.ceil(
+                        (15 - len(chord[1])) / 2) + chord[1] + ' ' * math.ceil((15 - len(chord[1])) / 2)
 
         note_wrapper += '|'
 
