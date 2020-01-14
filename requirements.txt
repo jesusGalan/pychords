@@ -1,3 +1,4 @@
 expects
 mamba
 tornado
+pyaudio
