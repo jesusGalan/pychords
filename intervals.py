@@ -39,17 +39,14 @@ def get_identic_nomenclature(element):
 
 def get_scale_by_selected_intervals(position_list):
     ''' Get the grades implicated on the selected intervals'''
-
     scales_dict = get_intervals_from_json()
     _list = []
-
-    for key in scales_dict.items():
-        for scale in range(len(scales_dict[key[0]].items())):
-            count = count_positions(scales_dict[key[0]].items()[scale][1], position_list)
-
+    for key in list(scales_dict.items()):
+        for scale in range(len(list(scales_dict[key[0]].items()))):
+            count = count_positions(list(scales_dict[key[0]].items())[scale][1], position_list)
             if (count == len(position_list) and
-                    'cromatic' not in scales_dict[key[0]].items()[scale][0]):
-                _list.append(scales_dict[key[0]].items()[scale][0])
+                    'cromatic' not in list(scales_dict[key[0]].items())[scale][0]):
+                _list.append(list(scales_dict[key[0]].items())[scale][0])
 
     return _list
 
