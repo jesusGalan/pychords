@@ -82,10 +82,9 @@ def inject_arguments(num):
 
 def draw_fret_according_to(arguments_length):
     """Initial task to show items on bash guitar replica"""
-
     notes = []
 
-    for item in range(1, arguments_length):
+    for item in range(5, arguments_length):
         notes.append(inject_arguments(item))
 
     visualize_map(initialize_and_concat_codemaps(notes))
