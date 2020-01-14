@@ -1,10 +1,10 @@
 '''Visualize is able to write notes on ascii fretboard and show it on bash sessions'''
 
 import sys
-from pychords.fretcodemap import cat_codemaps, get_codemap_of, init_fret_codemap, init_notemap
+from fretcodemap import cat_codemaps, get_codemap_of, init_fret_codemap, init_notemap
 
 def initialize_and_concat_codemaps(all_sys_notes):
-    '''Concatenation of codemaps according to the selected notes and returning the result'''
+    """Concatenation of codemaps according to the selected notes and returning the result"""
     codemap = init_fret_codemap()
 
     for note in enumerate(all_sys_notes):
@@ -14,7 +14,7 @@ def initialize_and_concat_codemaps(all_sys_notes):
     return codemap
 
 def visualize_map(codemap):
-    '''Visualization of the fretboard with the selected notes'''
+    """Visualization of the fretboard with the selected notes"""
     ext = '------------------------------------------------------------------------------------'
     fret_number = ' 0                    3             5             7             9'
     mastil = [fret_number,
@@ -27,10 +27,10 @@ def visualize_map(codemap):
               return_row(codemap, 'sixth_string'), ext]
 
     for obj in mastil:
-        print obj
+        print(obj)
 
 def return_row(codemap, string_number):
-    '''Return a row with selected notes for each guitar string'''
+    """Return a row with selected notes for each guitar string"""
     structure = []
 
     for fret_number in range(12):
@@ -50,7 +50,7 @@ def return_row(codemap, string_number):
     return result
 
 def check_width(arr):
-    '''This method can reform the draw according to the names of the notes'''
+    """This method can reform the draw according to the names of the notes"""
 
     structure = []
     structure.append(' ')
@@ -72,7 +72,7 @@ def check_width(arr):
     return structure
 
 def inject_arguments(num):
-    '''Try to get argument '''
+    """Try to get argument """
     try:
         return sys.argv[num]
 
@@ -81,7 +81,7 @@ def inject_arguments(num):
 
 
 def draw_fret_according_to(arguments_length):
-    '''Initial task to show items on bash guitar replica'''
+    """Initial task to show items on bash guitar replica"""
 
     notes = []
 

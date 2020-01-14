@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
-
-
-import os
 import json
+import os
 
 import tornado.web
 import tornado.ioloop
 import tornado.options
 import tornado.httpserver
 
-from pychords.functions import get_scale_name_list
-from pychords.functions import get_grade_name_list_of_scale
-from pychords.functions import get_tone_name_list_of_grade
-from pychords.notePosition import get_fretboard_note_positions
+from scales import get_scale_name_list, get_grade_name_list_of_scale, get_tone_name_list_of_grade
+from notePosition import get_fretboard_note_positions
 
 from tornado.options import define, options
 define('port', default=8000, help='Especifica el puerto', type=int)
@@ -20,7 +16,7 @@ define('port', default=8000, help='Especifica el puerto', type=int)
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render(os.path.join('index.html'))
+        self.render(os.path.join('web/index.html'))
 
 
 class AllScalesApiHandler(tornado.web.RequestHandler):
@@ -66,10 +62,11 @@ if __name__ == '__main__':
         (r'/api/tones/', TonesApiHandler),
         (r'/api/note_positions/', NotePositionsHandler),
     ]
-    static_path = os.path.join(os.path.dirname(__file__), 'static')
+    static_path = os.path.join(os.path.dirname(__file__), 'web/static')
     app = tornado.web.Application(handlers=handlers, static_path=static_path,
                                   debug=True)
 
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
+    print ('Server listening on port ' + str(options.port))
     tornado.ioloop.IOLoop.instance().start()

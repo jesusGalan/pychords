@@ -1,10 +1,11 @@
 '''do functions for notemaps to be drawn'''
 from functions import take_all_notes_from
 
+
 def fresh_fret_data():
     '''initialized empty codemap'''
 
-    return {'first_string' : [], 'second_string': [],
+    return {'first_string': [], 'second_string': [],
             'third_string': [], 'fourth_string': [],
             'fifth_string': [], 'sixth_string': []}
 
@@ -14,7 +15,7 @@ def init_fret_codemap():
 
     fret_map = fresh_fret_data()
     for i in ['1', '2', '3', '4', '5', '6']:
-        for x in range(12): # pylint: disable=invalid-name
+        for x in range(12):  # pylint: disable=invalid-name
             compose_fret_codemap(i, x, fret_map)
 
     return fret_map
@@ -32,7 +33,7 @@ def compose_fret_codemap(i, string_number, codemap):
 
     string_correspondencies = get_strings_correspondencies()
 
-    code = (i+'-'+str(string_number),
+    code = (i + '-' + str(string_number),
             take_all_notes_from(names_of_guitar_strings[i])[string_number],
             False)
 
@@ -72,11 +73,13 @@ def compose_new_address(fret_number, string_number, orig, process):
         orig[string_correspondencies[string_number]][fret_number][1],
         True))
 
+
 def get_strings_correspondencies():
     '''String correspondencies refactor'''
 
     return {'1': 'first_string', '2': 'second_string', '3': 'third_string',
             '4': 'fourth_string', '5': 'fifth_string', '6': 'sixth_string'}
+
 
 def get_from_orig_on_addres(fret_number, string_number, orig, process):
     '''Compose adress when the note is hidden'''
@@ -85,6 +88,7 @@ def get_from_orig_on_addres(fret_number, string_number, orig, process):
 
     process[string_correspondencies[string_number]].append(
         orig[string_correspondencies[string_number]][fret_number])
+
 
 def init_notemap(note):
     '''Positions of each note with (number_of_string)-(number_of_fret)'''
@@ -109,6 +113,7 @@ def init_notemap(note):
 
     return full_map[note]
 
+
 def cat_codemaps(codemap1, codemap2):
     '''Concatenation of a pair of notemaps '''
 
@@ -130,6 +135,6 @@ def cat_codemaps(codemap1, codemap2):
 
     return compo
 
+
 if __name__ == '__main__':
     print(get_codemap_of(['A-8', 'B-1', 'C-5', 'D-10', 'E-3', 'F-8']))
-    

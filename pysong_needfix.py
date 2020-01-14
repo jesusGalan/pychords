@@ -4,10 +4,13 @@ import os
 import sys
 import wave
 
-import pysynth
+'''import pysynth'''
 import pyaudio
+from pip._vendor.distlib.compat import raw_input
 
-from functions import scales
+from scales import scales
+from functions import take_all_notes_from, gen_double_note
+from pysong_needfix import get_the_notes_between
 
 octave = 4
 
@@ -56,17 +59,18 @@ def search_c_position(_list):
     else:
         for elem in _list:
             try:
-                if 'C' in pychord_module.get_the_notes_between(elem, _list[_list.index(elem) + 1]):
+                if 'C' in get_the_notes_between(elem, _list[_list.index(elem) + 1]):
                     count = count + 1
                     res = count
-                elif 'C' not in pychord_module.get_the_notes_between(elem, _list[_list.index(elem) + 1]):
+                elif 'C' not in get_the_notes_between(elem, _list[_list.index(elem) + 1]):
                     count = count + 1
 
             except IndexError:
                 count = count + 1
-                print 'final de lista'
+                print('final de lista')
 
     return res
+
 
 def get_the_notes_between(first, last):
     notes = take_all_notes_from(first)
@@ -85,16 +89,17 @@ def get_the_notes_between(first, last):
 
     return new_notes
 
+
 if __name__ == '__main__':
 
     scale_grade = sys.argv[1]
     note = sys.argv[2]
-    escala = pychord_module.scales(scale_grade, note)
+    escala = scales(scale_grade, note)
     octave = 4
 
     test = prepare_for_pysynth(escala)
 
-    pysynth.make_wav(test, fn="test.wav")
+    '''pysynth.make_wav(test, fn="test.wav")'''
 
     # define stream chunk
     chunk = 1024
@@ -137,16 +142,17 @@ if __name__ == '__main__':
 
     if x == 'y':
         try:
-            os.rename(os.path.realpath(os.path.join(_root, _name)), os.path.realpath(os.path.join(_root, scale_grade + '_in_' + note + '.wav')))
+            os.rename(os.path.realpath(os.path.join(_root, _name)),
+                      os.path.realpath(os.path.join(_root, scale_grade + '_in_' + note + '.wav')))
 
         except WindowsError:
-            print '\n'
-            print 'The file is already in the current directory. No changes applied.'
-            print '\n'
+            print('\n')
+            print('The file is already in the current directory. No changes applied.')
+            print('\n')
 
     elif x == 'n':
         os.remove(os.path.realpath(os.path.join(_root, _name)))
 
     else:
-        print 'mmmakey'
+        print('mmmakey')
         os.remove(os.path.realpath(os.path.join(_root, _name)))

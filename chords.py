@@ -8,11 +8,12 @@ import json
 
 from functions import read_scales_from_json
 
-
 CHORDS_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/chords.json')
+
 
 def get_chords_from_json():
     return json.loads(read_scales_from_json(CHORDS_JSON_PATH))
+
 
 def get_dict_of_alternatives(type_of_chord, intervals):
     alternatives = {'0': [],
@@ -24,6 +25,7 @@ def get_dict_of_alternatives(type_of_chord, intervals):
 
     return alternatives
 
+
 def get_string_of_nomenclature(type_of_chord, intervals):
     chord_nomenclature = ''
     for pos in range(type_of_chord):
@@ -33,6 +35,7 @@ def get_string_of_nomenclature(type_of_chord, intervals):
             chord_nomenclature += intervals[pos][0]
 
     return chord_nomenclature
+
 
 def get_alternative_results(note, alternatives, type_of_chord):
     result = []
@@ -82,6 +85,7 @@ def get_chord_name(note, scale, type_of_chord):
         chord_nomenclature = get_string_of_nomenclature(type_of_chord, intervals)
 
         return note + chord_nomenclature
+
 
 if __name__ == '__main__':
     print(get_chord_name(sys.argv[2], sys.argv[1], int(sys.argv[3])))

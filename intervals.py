@@ -1,4 +1,3 @@
-
 import os
 import sys
 import json
@@ -7,8 +6,10 @@ from functions import read_scales_from_json
 
 INTERVALS_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/intervals.json')
 
+
 def get_intervals_from_json():
     return json.loads(read_scales_from_json(INTERVALS_JSON_PATH))
+
 
 def get_nomenclatures():
     '''List of possible nomenclatures'''
@@ -23,6 +24,7 @@ def get_nomenclatures():
             'b13': 'b6', '13': '6', '#13': '#6', 'b14': 'b7',
             '14': '7'}
 
+
 def get_identic_nomenclature(element):
     '''Search enarmonics.'''
     try:
@@ -34,9 +36,10 @@ def get_identic_nomenclature(element):
         print('no se que es ', element)
         exit()
 
+
 def get_scale_by_selected_intervals(position_list):
     ''' Get the grades implicated on the selected intervals'''
-    
+
     scales_dict = get_intervals_from_json()
     _list = []
 
@@ -49,7 +52,8 @@ def get_scale_by_selected_intervals(position_list):
                 _list.append(scales_dict[key[0]].items()[scale][0])
 
     return _list
-    
+
+
 def count_positions(key, position_list):
     count = 0
 
@@ -63,6 +67,7 @@ def count_positions(key, position_list):
                 count += 1
 
     return count
+
 
 if __name__ == '__main__':
     _list = []

@@ -8,8 +8,9 @@ from intervals import get_identic_nomenclature
 
 SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/scales.json')
 
+
 def get_notes_of(scale_name, tone):
-    '''This method can get all notes of a scale from a tone center'''
+    """This method can get all notes of a scale from a tone center"""
     note_list = take_all_notes_from(tone)
     note_list = note_list + note_list
     scale_list = config_scale(note_list, scale_name, tone)
@@ -45,6 +46,7 @@ def read_formula(scale):
 
     return scale_formula
 
+
 def get_list_of_grades_by(mom_scale):
     scales_dict = json.loads(read_scales_from_json(SCALES_JSON_PATH), object_pairs_hook=OrderedDict)
     scales_resulted = []
@@ -64,6 +66,7 @@ def parse_scales_json_to_python():
 
     return json_content
 
+
 def get_scale_name_list():
     json_content = parse_scales_json_to_python()
 
@@ -73,8 +76,9 @@ def get_scale_name_list():
 
     return scale_name_list
 
+
 def get_grade_name_list_of_scale(scale):
-    '''I think that should remove it'''
+    """I think that should remove it"""
     json_content = parse_scales_json_to_python()
 
     grade_name_list = []
@@ -82,6 +86,22 @@ def get_grade_name_list_of_scale(scale):
         grade_name_list.append(k.replace('_', ' '))
 
     return grade_name_list
+
+
+def scales(scale_name, tone):
+    note_list = take_all_notes_from(tone)
+    note_list = note_list + note_list
+    scale_list = config_scale(note_list, scale_name, tone)
+
+    return scale_list
+
+
+def get_tone_name_list_of_grade(grade):
+    notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+    result = []
+    for note in notes:
+        result.append({note: scales(grade, note)})
+    return result
 
 
 if __name__ == '__main__':

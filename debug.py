@@ -25,5 +25,5 @@ def display_debug(result):
 
 if __name__ == '__main__':
 
-    print '\n'
-    print debug_scale(str(sys.argv[1]))
+    print('\n')
+    print(debug_scale(str(sys.argv[1])))

@@ -18,6 +18,7 @@ def get_scale_names_according_to(scale_name, mom_scale):
 
     return result_list_second + result_list_first
 
+
 def get_empty_dict_with_grades(json_data):
     return {json_data[0]: [],
             json_data[1]: [],
@@ -55,6 +56,7 @@ def get_simple_table_with_grades_and_notes_by(mom_scale, note_selected):
         result[scale[1]].append((result_notes[scale[1]]))
 
     return result
+
 
 def get_modal_interchange_data_by(mom_scale, note_selected):
     list_of_grades = get_list_of_grades_by(mom_scale)
@@ -96,9 +98,10 @@ def fill_scale_data_in_object(result_dict, mom_scale, type_of_chord):
                 get_chord_name(correspondency[1],
                                get_scale_names_according_to(
                                    correspondencies[scale_result], mom_scale)[correspondency[0]], type_of_chord)
-                )
+            )
 
     return result_correspondencies
+
 
 def resort_scales(init_dict):
     chords_lists = init_dict['scale_chords']
@@ -110,6 +113,7 @@ def resort_scales(init_dict):
     init_dict['scale_chords'] = result
 
     return init_dict
+
 
 def move_array_to_right(init_array, moves):
     correspondencies = {
@@ -151,26 +155,28 @@ def get_data_to_visualize(filled_object, mark):
     for chords in enumerate(filled_object['scale_chords']):
         note_wrapper += '\n'
         for chord in enumerate(chords[1]):
-            if str(((15 - len(chord[1]))/2.0)).split('.')[1] == '5':
+            if str(((15 - len(chord[1])) / 2.0)).split('.')[1] == '5':
                 try:
                     note_wrapper += '|' + ' ' * (
-                        (15 - len(chord[1]))/2) + chord[1] + ' '*((16 - len(chord[1]))/2)
+                            (15 - len(chord[1])) / 2) + chord[1] + ' ' * ((16 - len(chord[1])) / 2)
                 except TypeError:
                     note_wrapper += '|' + ' ' * (
-                        (15 - len(chord[1][0]))/2) + chord[1][0] + ' '*((16 - len(chord[1][0]))/2)
+                            (15 - len(chord[1][0])) / 2) + chord[1][0] + ' ' * ((16 - len(chord[1][0])) / 2)
             else:
-                note_wrapper += '|' + ' '* (
-                    (15 - len(chord[1]))/2) + chord[1] + ' '*((15 - len(chord[1]))/2)
+                note_wrapper += '|' + ' ' * (
+                        (15 - len(chord[1])) / 2) + chord[1] + ' ' * ((15 - len(chord[1])) / 2)
 
         note_wrapper += '|'
 
     return note_wrapper
+
 
 def visualize_modal_vertical_sort():
     return get_data_to_visualize(
         resort_scales(
             fill_scale_data_in_object(
                 get_modal_interchange_data_by(sys.argv[1], sys.argv[2]), sys.argv[1], int(sys.argv[3]))), 'vertical')
+
 
 def visualize_modal_horizontal_sort():
     return get_data_to_visualize(
@@ -179,6 +185,7 @@ def visualize_modal_horizontal_sort():
 
 
 if __name__ == __name__:
-    print visualize_modal_vertical_sort()
-    print visualize_modal_horizontal_sort()
-    print "\n --------------------------------------------------------------------------------------------------------------- \n"
+    print(visualize_modal_vertical_sort())
+    print(visualize_modal_horizontal_sort())
+    print(
+        '\n --------------------------------------------------------------------------------------------------------------- \n')
