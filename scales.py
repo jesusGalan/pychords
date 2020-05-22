@@ -12,6 +12,7 @@ SCALES_JSON_PATH = os.path.join(os.path.dirname(__file__), 'scales_repository/sc
 def get_notes_of(scale_name, tone):
     """This method can get all notes of a scale from a tone center"""
     note_list = take_all_notes_from(tone)
+    
     note_list = note_list + note_list
     scale_list = config_scale(note_list, scale_name, tone)
 

@@ -27,7 +27,7 @@ def take_all_notes_from(tone):
 
 def take_position(tone, notes):
     """Get the position of a possible note"""
-    _pos_tone = None
+    _pos_tone = 0
     if tone not in ['Fb', 'Cb', 'E#', 'B#']:
         alteration = tone[1:2]
 
@@ -261,7 +261,7 @@ def return_good_notes(short_list):
         'first_note': short_list[0],
         'latest_note': short_list[-1],
         'second_note_first_char': short_list[1][0],
-        'penultimate_note_fourth_char': short_list[-2][3]}
+        'penultimate_note_fourth_char': short_list[-2]}
 
     for data in enumerate(short_list):
         if '.' in data[1]:

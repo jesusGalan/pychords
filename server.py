@@ -7,10 +7,11 @@ import tornado.ioloop
 import tornado.options
 import tornado.httpserver
 
-from scales import get_scale_name_list, get_grade_name_list_of_scale, get_tone_name_list_of_grade
+from scales import get_scale_name_list, get_grade_name_list_of_scale, get_tone_name_list_of_grade, get_notes_of
 from notePosition import get_fretboard_note_positions
 
 from tornado.options import define, options
+
 define('port', default=8000, help='Especifica el puerto', type=int)
 
 
@@ -52,6 +53,15 @@ class NotePositionsHandler(tornado.web.RequestHandler):
         self.set_header('Content-Type', 'application/json')
         self.write(json.dumps(positions))
 
+class NoteAndScaleHandler(tornado.web.RequestHandler):
+    def get(self):
+        note = self.get_argument('note')
+        scalename = self.get_argument('scalename')
+
+        chords = get_notes_of(scalename, note)
+
+        self.set_header('Content-Type', 'application/json')
+        self.write(json.dumps({'response': chords}))
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()
@@ -61,6 +71,8 @@ if __name__ == '__main__':
         (r'/api/grades/', ScaleGradesApiHandler),
         (r'/api/tones/', TonesApiHandler),
         (r'/api/note_positions/', NotePositionsHandler),
+        (r'/api/notes/', NoteAndScaleHandler),
+        (r'/api/scale_list/', AllScalesApiHandler),
     ]
     static_path = os.path.join(os.path.dirname(__file__), 'web/static')
     app = tornado.web.Application(handlers=handlers, static_path=static_path,
