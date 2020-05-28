@@ -12,7 +12,7 @@ from notePosition import get_fretboard_note_positions
 
 from tornado.options import define, options
 
-define('port', default=8000, help='Especifica el puerto', type=int)
+define('port', default=9000, help='Especifica el puerto', type=int)
 
 
 class IndexHandler(tornado.web.RequestHandler):
@@ -46,6 +46,11 @@ class TonesApiHandler(tornado.web.RequestHandler):
         self.write(json.dumps(tone_list))
 
 class NotePositionsHandler(tornado.web.RequestHandler):
+    def set_default_headers(self):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Headers", "x-requested-with")
+        self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+
     def get(self):
         note = self.get_argument('note')
         positions = get_fretboard_note_positions(note)
@@ -54,14 +59,32 @@ class NotePositionsHandler(tornado.web.RequestHandler):
         self.write(json.dumps(positions))
 
 class NoteAndScaleHandler(tornado.web.RequestHandler):
+    def prepare(self):
+        if ('X-Forwarded-Proto' in self.request.headers and
+            self.request.headers['X-Forwarded-Proto'] != 'http'):
+            self.redirect(re.sub(r'^([^:]+)', 'http', self.request.full_url()))
+
+    def set_default_headers(self):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Headers", "x-requested-with")
+        self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+
+    def post(self):
+        self.write('some post')
+
     def get(self):
-        note = self.get_argument('note')
+        note = self.get_argument('note').capitalize()
         scalename = self.get_argument('scalename')
 
         chords = get_notes_of(scalename, note)
 
         self.set_header('Content-Type', 'application/json')
         self.write(json.dumps({'response': chords}))
+
+    def options(self):
+        # no body
+        self.set_status(200)
+        self.finish()
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()
@@ -76,7 +99,7 @@ if __name__ == '__main__':
     ]
     static_path = os.path.join(os.path.dirname(__file__), 'web/static')
     app = tornado.web.Application(handlers=handlers, static_path=static_path,
-                                  debug=True)
+                                  debug=False)
 
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
