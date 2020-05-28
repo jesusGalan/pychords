@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import os
+import platform
 
 import tornado.web
 import tornado.ioloop
@@ -11,6 +12,10 @@ from scales import get_scale_name_list, get_grade_name_list_of_scale, get_tone_n
 from notePosition import get_fretboard_note_positions
 
 from tornado.options import define, options
+
+if (platform.system() == 'Windows'):
+    import asyncio
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 define('port', default=9000, help='Especifica el puerto', type=int)
 
