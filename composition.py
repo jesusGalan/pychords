@@ -186,8 +186,9 @@ def visualize_modal_horizontal_sort():
             get_modal_interchange_data_by(sys.argv[1], sys.argv[2]), sys.argv[1], int(sys.argv[3])), 'horizontal')
 
 
-if __name__ == __name__:
+'''if __name__ == __name__:
     print(visualize_modal_vertical_sort())
     print(visualize_modal_horizontal_sort())
     print(
         '\n --------------------------------------------------------------------------------------------------------------- \n')
+'''
