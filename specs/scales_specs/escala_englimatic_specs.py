@@ -3,6 +3,7 @@
 
 from expects import *
 from scales import get_notes_of
+from mamba import describe, description, it, context
 
 
 with description('Generating get_notes_of'):

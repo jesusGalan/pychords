@@ -15,7 +15,7 @@ def own_sort(grades_list, grade):
 
     return grades_list
 
-def get_data_by(note_selected, scale, deep=1):
+def get_data_by(note_selected, scale, deep):
     '''
         Saco chords con get_chord_name(note, scale, type_of_chord):
     '''

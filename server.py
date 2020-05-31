@@ -99,7 +99,8 @@ class ChordNotationApiHandler(tornado.web.RequestHandler):
     def get(self):
         note = self.get_argument('note')
         scalename = self.get_argument('scalename')
-        chords = get_data_by(note, scalename)
+        deep = int(self.get_argument('deep'))
+        chords = get_data_by(note.capitalize(), scalename, deep)
 
         self.set_header('Content-Type', 'application/json')
         self.write(json.dumps({'response': chords}))
