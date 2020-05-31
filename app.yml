@@ -1,0 +1,11 @@
+runtime: python3
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: .*
+  script: server.app
+
+libraries:
+- name: tornado
+  version: "6.0.4.0"
