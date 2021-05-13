@@ -6,12 +6,9 @@ from expects import *
 from functions import *
 from notePosition import *
 
-
 with description("App pyChords"):
     with context('function for take required notes must do it'):
-
         with it('must return required scale notes'):
-
             scale = ['A#.Bb', 'B', 'C', 'C#.Db', 'D#.Eb', 'E', 'F', 'F#.Gb', 'G', 'G#.Ab', 'A']
             sure = 'C'
             next_sure = 'E'
@@ -19,7 +16,6 @@ with description("App pyChords"):
             expect(get_short_list_of_notes(sure, next_sure, scale)).to(equal(['C', 'C#.Db', 'D#.Eb', 'E']))
 
         with it('must return required scale notes'):
-
             scale = ['A#.Bb', 'C', 'D', 'E', 'F#.Gb', 'G', 'A', 'A#.Bb', 'C', 'D', 'E', 'F#.Gb', 'G', 'A']
             sure = 'E'
             next_sure = 'G'
@@ -27,49 +23,40 @@ with description("App pyChords"):
             expect(get_short_list_of_notes(sure, next_sure, scale)).to(equal(['E', 'F#.Gb', 'G']))
 
     with context('function for take all notes must do it'):
-
         with it('must return a list from Bb'):
-
             note = 'Bb'
 
             expect(take_all_notes_from(note)).to(equal(
                 ['A#.Bb', 'B', 'C', 'C#.Db', 'D', 'D#.Eb', 'E', 'F', 'F#.Gb', 'G', 'G#.Ab', 'A']))
 
         with it('must return a list from B'):
-
             note = 'B'
 
             expect(take_all_notes_from(note)).to(equal(
                 ['B', 'C', 'C#.Db', 'D', 'D#.Eb', 'E', 'F', 'F#.Gb', 'G', 'G#.Ab', 'A', 'A#.Bb']))
 
     with context('must return good notes'):
-
         with it("must return good notes with a short list"):
-
             short_list = ['C', 'C#.Db', 'D#.Eb', 'F#.Gb', 'G']
 
             expect(return_good_notes(short_list)).to(equal(['C', 'Db', 'Eb', 'F#', 'G']))
 
         with it("must return good notes with a short list"):
-
             short_list = ['C', 'D#.Eb', 'F#.Gb', 'A']
 
             expect(return_good_notes(short_list)).to(equal(['C', 'D#', 'F#', 'A']))
 
         with it("must return good notes with a short list"):
-
             short_list = ['C', 'C#.Db', 'D#.Eb', 'F#.Gb', 'A']
 
             expect(return_good_notes(short_list)).to(equal(['C', 'Db', 'Eb', 'Gb', 'A']))
 
         with it("must return good notes with a short list"):
-
             short_list = ['C', 'D#.Eb', 'F#.Gb', 'G#.Ab', 'A']
 
             expect(return_good_notes(short_list)).to(equal(['C', 'D#', 'F#', 'G#', 'A']))
 
         with it("must return good notes with a short list"):
-
             short_list = ['F', 'F#.Gb', 'G#.Ab', 'A']
 
             expect(return_good_notes(short_list)).to(equal(['F', 'Gb', 'G#', 'A']))
