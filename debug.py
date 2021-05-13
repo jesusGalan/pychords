@@ -1,6 +1,7 @@
 import sys
 from scales import get_notes_of
 
+
 def debug_scale(scale):
     notes = ['C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#', 'Ab', 'A', 'A#', 'Bb', 'B']
     result = {}
@@ -23,7 +24,7 @@ def display_debug(result):
         res = res + '\n'
     return res
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     print('\n')
     print(debug_scale(str(sys.argv[1])))

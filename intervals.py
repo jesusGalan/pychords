@@ -53,7 +53,6 @@ def get_scale_by_selected_intervals(position_list):
 
 def count_positions(key, position_list):
     count = 0
-
     for position in key:
         for element in position_list:
             if position != element:

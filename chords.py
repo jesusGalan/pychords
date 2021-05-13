@@ -1,6 +1,5 @@
-''' chords formatter from json '''
-
 # -*- coding: utf-8 -*-
+''' chords formatter from json '''
 
 import os
 import sys

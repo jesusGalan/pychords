@@ -17,6 +17,7 @@ from tornado.options import define, options
 
 if (platform.system() == 'Windows'):
     import asyncio
+
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 define('port', default=9000, help='Especifica el puerto', type=int)
@@ -87,6 +88,7 @@ class NoteAndScaleHandler(tornado.web.RequestHandler):
         self.set_status(200)
         self.finish()
 
+
 class ChordNotationApiHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
         self.set_header("Access-Control-Allow-Origin", "*")
@@ -109,6 +111,7 @@ class ChordNotationApiHandler(tornado.web.RequestHandler):
         self.set_status(200)
         self.finish()
 
+
 if __name__ == '__main__':
     tornado.options.parse_command_line()
     handlers = [
@@ -127,5 +130,5 @@ if __name__ == '__main__':
 
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
-    print ('Server listening on port ' + str(options.port))
+    print('Server listening on port ' + str(options.port))
     tornado.ioloop.IOLoop.instance().start()

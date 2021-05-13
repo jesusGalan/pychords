@@ -4,7 +4,6 @@ from functions import take_all_notes_from
 
 def fresh_fret_data():
     '''initialized empty codemap'''
-
     return {'first_string': [], 'second_string': [],
             'third_string': [], 'fourth_string': [],
             'fifth_string': [], 'sixth_string': []}
@@ -23,7 +22,6 @@ def init_fret_codemap():
 
 def compose_fret_codemap(i, string_number, codemap):
     '''writing default no visibility values'''
-
     names_of_guitar_strings = {'1': 'E',
                                '2': 'B',
                                '3': 'G',

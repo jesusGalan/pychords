@@ -184,6 +184,7 @@ def get_fretboard_b_positions():
         {'cord': 5, 'fret': 2},
     ]
 
+
 def get_fretboard_note_positions(note):
     positions = {
         'C': get_fretboard_c_positions(),

@@ -3,6 +3,7 @@
 import sys
 from fretcodemap import cat_codemaps, get_codemap_of, init_fret_codemap, init_notemap
 
+
 def initialize_and_concat_codemaps(all_sys_notes):
     """Concatenation of codemaps according to the selected notes and returning the result"""
     codemap = init_fret_codemap()
@@ -12,6 +13,7 @@ def initialize_and_concat_codemaps(all_sys_notes):
             codemap = cat_codemaps(codemap, get_codemap_of(init_notemap(note[1])))
 
     return codemap
+
 
 def visualize_map(codemap):
     """Visualization of the fretboard with the selected notes"""
@@ -28,6 +30,7 @@ def visualize_map(codemap):
 
     for obj in mastil:
         print(obj)
+
 
 def return_row(codemap, string_number):
     """Return a row with selected notes for each guitar string"""
@@ -48,6 +51,7 @@ def return_row(codemap, string_number):
         result = result + check_width(structure)[item[0]]
 
     return result
+
 
 def check_width(arr):
     """This method can reform the draw according to the names of the notes"""
@@ -71,6 +75,7 @@ def check_width(arr):
 
     return structure
 
+
 def inject_arguments(num):
     """Try to get argument """
     try:
@@ -88,6 +93,7 @@ def draw_fret_according_to(arguments_length):
         notes.append(inject_arguments(item))
 
     visualize_map(initialize_and_concat_codemaps(notes))
+
 
 if __name__ == '__main__':
     draw_fret_according_to(len(sys.argv))

@@ -15,7 +15,7 @@ def get_notes_of(scale_name, tone):
 
     """This method can get all notes of a scale from a tone center"""
     note_list = take_all_notes_from(tone)
-    
+
     note_list = note_list + note_list
     scale_list = config_scale(note_list, scale_name, tone)
 
